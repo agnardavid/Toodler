@@ -11,6 +11,10 @@
     "test": "jest --watchAll",
     "lint": "expo lint"
   },
+  "engines": {
+    "node": ">=20",
+    "npm": ">=8"
+  },
   "jest": {
     "preset": "jest-expo"
   },
@@ -47,7 +51,7 @@
     "@babel/plugin-transform-class-properties": "^7.25.9",
     "@eslint/js": "^9.15.0",
     "@types/jest": "^29.5.12",
-    "@types/react": "~18.3.12",
+    "@types/react": "^18.3.12",
     "@types/react-test-renderer": "^18.3.0",
     "eslint": "^9.15.0",
     "eslint-plugin-react": "^7.37.2",
