@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList, Button } from 'react-native';
 import ButtonCard from './eachBoard';
 import data from './data.json';
+import { Link } from 'expo-router';
 
-const Boards = () => {
+const Boards = ({}: any) => {
+
   const boards = data.boards;
 
   const renderBoard = ({ item }: { item: any }) => (
@@ -12,7 +14,8 @@ const Boards = () => {
           photo={item.thumbnailPhoto}
           name={item.name}
           onPress={() => console.log(`Clicked on board: ${item.name}`)}
-          description={item.description}    />
+          description={item.description} 
+    />
   );
 
   return (
@@ -23,6 +26,9 @@ const Boards = () => {
         renderItem={renderBoard}
         contentContainerStyle={styles.listContainer}
       />
+      <Link href="/views/createBoardScreen">
+        <Button title="Create New Board" />
+      </Link>
     </View>
   );
 };
