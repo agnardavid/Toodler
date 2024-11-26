@@ -5,6 +5,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 ## Get started
 
 ---- important, sent up venv ! TBA
+---- make sure ur connected to same wifi on phone & server
 
 1. Install dependencies
 
