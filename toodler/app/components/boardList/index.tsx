@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, FlatList, Button, TouchableOpacity, Text } from 'react-native';
-import ButtonCard from '../eachBoard/eachBoard';
+import ButtonCard from '../board';
 import data from '../../resources/data.json';
 import { Link } from 'expo-router';
 
