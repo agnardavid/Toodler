@@ -20,6 +20,13 @@ const styles = StyleSheet.create({
       borderTopLeftRadius: 10,
       borderBottomLeftRadius: 10,
     },
+    defaultImage: {
+      width: '40%',
+      height: '100%',
+      borderTopLeftRadius: 10,
+      borderBottomLeftRadius: 10,
+      backgroundColor: '#f0f0f0',
+    },
     textContainer: {
       padding: 5,
       flex: 1,
@@ -32,6 +39,12 @@ const styles = StyleSheet.create({
     description: {
       fontSize: 12,
       color: '#555',
+      marginBottom: 5,
+    },
+    noDescription: {
+      fontSize: 12,
+      color: '#999',
+      fontStyle: 'italic',
       marginBottom: 5,
     },
     deleteButton: {
