@@ -1,29 +1,40 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, FlatList, Button, TouchableOpacity, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import ButtonCard from '../board';
+import CreateBoardButton from '../createBoardButton';
 import data from '../../resources/data.json';
-import { Link } from 'expo-router';
 
-const Boards = ({}: any) => {
+const Boards = () => {
 
-const [boards, setBoards] = useState(data.boards);
+  const router = useRouter();
+  const { newBoard } = useLocalSearchParams();
 
-const deleteBoard = (id: number) => {
-  if (id !== null) {
-    setBoards((prevBoards) => prevBoards.filter((board) => board.id !== id));
-  }
-};
+  const [boards, setBoards] = useState(data.boards);
 
-const renderBoard = ({ item }: { item: any }) => (
-  <ButtonCard
-    id={item.id}
-    photo={item.thumbnailPhoto}
-    name={item.name}
-    onPress={() => console.log(`Clicked on board: ${item.name}`)}
-    description={item.description}
-    onDelete={() => deleteBoard(item.id)} />
+  useEffect(() => {
+    if (newBoard) {
+      const parsedBoard = JSON.parse(newBoard as string);
+      setBoards((prevBoards) => [...prevBoards, parsedBoard]);
+    }
+  }, [newBoard]);
+
+  const deleteBoard = (id: number) => {
+    if (id !== null) {
+      setBoards((prevBoards) => prevBoards.filter((board) => board.id !== id));
+    }
+  };
+
+  const renderBoard = ({ item }: { item: any }) => (
+    <ButtonCard
+      id={item.id}
+      photo={item.thumbnailPhoto}
+      name={item.name}
+      onPress={() => console.log(`Clicked on board: ${item.name}`)}
+      description={item.description}
+      onDelete={() => deleteBoard(item.id)} 
+    />
   );
-
 
   return (
     <View style={styles.container}>
@@ -33,9 +44,7 @@ const renderBoard = ({ item }: { item: any }) => (
       renderItem={renderBoard}
       contentContainerStyle={styles.listContainer}
       />
-      <Link href="../views/createBoardScreen">
-        <Button title="Create New Board" />
-      </Link>
+      <CreateBoardButton />
     </View>
   );
 };
