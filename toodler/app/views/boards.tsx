@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, FlatList, Button } from 'react-native';
 import ButtonCard from './eachBoard';
 import data from './data.json';
@@ -6,25 +6,29 @@ import { Link } from 'expo-router';
 
 const Boards = ({}: any) => {
 
-  const boards = data.boards;
+const [boards, setBoards] = useState(data.boards);
 
-  const renderBoard = ({ item }: { item: any }) => (
-    <ButtonCard
-          key={item.id}
-          photo={item.thumbnailPhoto}
-          name={item.name}
-          onPress={() => console.log(`Clicked on board: ${item.name}`)}
-          description={item.description} 
-    />
+const deleteBoard = (id: number) => {
+  setBoards((prevBoards) => prevBoards.filter((board) => board.id !== id));
+};
+
+const renderBoard = ({ item }: { item: any }) => (
+  <ButtonCard
+    key={item.id}
+    photo={item.thumbnailPhoto}
+    name={item.name}
+    onPress={() => console.log(`Clicked on board: ${item.name}`)}
+    description={item.description}
+    onDelete={() => deleteBoard(item.id)} id={0}  />
   );
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={boards}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={renderBoard}
-        contentContainerStyle={styles.listContainer}
+      data={boards}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={renderBoard}
+      contentContainerStyle={styles.listContainer}
       />
       <Link href="/views/createBoardScreen">
         <Button title="Create New Board" />
