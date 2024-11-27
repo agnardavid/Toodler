@@ -11,7 +11,7 @@ const createBoardScreen = () => {
 
   const handleCreateBoard = () => {
     console.log('New board created:', { name, description, image });
-    router.push('/');
+    router.push('../');
   };
 
   return (
