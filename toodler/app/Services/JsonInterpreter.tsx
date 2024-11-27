@@ -136,12 +136,12 @@ export const editTask = (taskId: number, name:string, description:string, isFini
   return false;
 };
 
-// Get a specific list by id
+// Get a specific task by id
 export const getTask = (taskId: number): Task | undefined => {
   return tasks.find(task => task.id === taskId);
 };
 
-// Get all lists
+// Get all tasks
 export const getAllTasks = (): Task[] => {
   return tasks.slice();
 };
