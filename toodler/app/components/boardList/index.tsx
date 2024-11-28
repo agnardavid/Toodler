@@ -5,8 +5,6 @@ import ButtonCard from '../board';
 import CreateBoardButton from '../createBoardButton';
 import data from '../../resources/data.json';
 import styles from './styles';
-import { deleteBoard } from '@/app/Services/JsonInterpreter';
-import DeleteButton from '../deleteBoard';
 
 const Boards = () => {
 
