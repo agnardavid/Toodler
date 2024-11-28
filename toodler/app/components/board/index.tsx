@@ -11,39 +11,52 @@ interface BoardDisplay {
   description: string | undefined;
   setBoard: React.Dispatch<React.SetStateAction<Board[]>>;
   onPress: () => void;
-  label?: string
-};
+  label?: string;
+}
 
 // Component for rendering each board
-const EachBoard: React.FC<BoardDisplay> = ({ id, photo, name, description, onPress, setBoard }) => {
-
-  const isPhotoValid = photo && photo.trim() !== '';                  // checks if photo is valid, i.e. not empty
+const EachBoard: React.FC<BoardDisplay> = ({
+  id,
+  photo,
+  name,
+  description,
+  onPress,
+  setBoard,
+}) => {
+  const isPhotoValid = photo && photo.trim() !== ''; // checks if photo is valid, i.e. not empty
 
   return (
-    
     <TouchableOpacity style={styles.card} onPress={onPress}>
-
-      {isPhotoValid ? (                                               // if photo is not empty
-        <Image source={{uri: photo }} style={styles.image} />         // display photo
+      {isPhotoValid ? (
+        <Image source={{ uri: photo }} style={styles.image} />
       ) : (
-        <View style={styles.defaultImage} />                          // display default image (which atm is just a gray background)
+        <View style={styles.defaultImage} />
       )}
 
       <View style={styles.textContainer}>
         <Text style={styles.name}>{name}</Text>
 
-        {description ? (                                              // checks for description
-          <Text style={styles.description}>{description}</Text>       // displays description
+        {description ? (
+          <Text style={styles.description}>{description}</Text>
         ) : (
-          <Text style={styles.noDescription}>
-            No description provided
-          </Text>                                                     // displays alt text
+          <Text style={styles.noDescription}>No description provided</Text>
         )}
-        
       </View>
+
       <DeleteButton boardId={id} onDelete={deleteBoard} setBoard={setBoard} />
+
+      {/* Edit Button inside the card */}
+      <TouchableOpacity
+        style={styles.editButton}
+        onPress={(e) => {
+          e.stopPropagation(); // Prevent bubbling up to the card's onPress
+          console.log(`Edit button pressed for board: ${name}`);
+        }}
+      >
+        <Text style={styles.editButtonText}>Edit</Text>
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 };
 
-export default EachBoard
+export default EachBoard;
