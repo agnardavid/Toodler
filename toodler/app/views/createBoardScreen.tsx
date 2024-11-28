@@ -2,29 +2,16 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
-const CreateBoardScreen = () => {
+const createBoardScreen = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
 
   const router = useRouter();
 
-  // Sets parameters of new board, goes back to last page after it's finished
   const handleCreateBoard = () => {
-    const newBoard = {
-      id: Date.now(),
-      name: name || 'Untitled Board',
-      description: description || '',
-      thumbnailPhoto: image || null, 
-    };
-
-    router.push({
-      pathname: '/',
-      params: {newBoard: JSON.stringify(newBoard) },          // Converts JSON data to string
-    });
-
     console.log('New board created:', { name, description, image });
-    
+    router.push('../');
   };
 
   return (
@@ -80,4 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateBoardScreen;
+export default createBoardScreen;
