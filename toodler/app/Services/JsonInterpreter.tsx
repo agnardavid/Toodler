@@ -1,15 +1,15 @@
 import jsonData from "../resources/data.json"
 
 // Define the type for a board
-interface Board {
+export interface Board {
   id: number;
   name: string,
-  thumbnailPhoto: string,
-  description:string,
+  thumbnailPhoto?: string,
+  description?:string,
   isDeleted:boolean
 };
 
-interface ListInterface {
+export interface ListInterface {
   id: number,
   name: string,
   color: string,
@@ -17,7 +17,7 @@ interface ListInterface {
   isDeleted:boolean
 };
 
-interface Task {
+export interface Task {
   id: number,
   name: string,
   description: string,
@@ -27,9 +27,9 @@ interface Task {
 };
 
 // Type assertions for `jsonData`
-let boards: Board[] = jsonData.boards as Board[];
-let lists: ListInterface[] = jsonData.lists as ListInterface[];
-let tasks: Task[] = jsonData.tasks as Task[];
+let boards: Board[] = jsonData.boards;
+let lists: ListInterface[] = jsonData.lists;
+let tasks: Task[] = jsonData.tasks;
 
 
 // Functions for boards
