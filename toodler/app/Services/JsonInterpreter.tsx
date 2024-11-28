@@ -48,13 +48,21 @@ export const createBoard = (): number => {
 };
 
 // Delete a board
-export const deleteBoard = (boardId: number): boolean => {
-  let deleteBoard = boards.find(board => board.id === boardId);
-  if (deleteBoard !== undefined){
-    deleteBoard.isDeleted = true;
-    return true;
-  }
-  return false;
+export const deleteBoard = async (boardId: number): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    try {
+      let deleteBoard = boards.find(board => board.id === boardId);
+      if (deleteBoard !== undefined){
+        deleteBoard.isDeleted = true;
+
+      }
+      setTimeout(() => {
+        resolve(); // Resolve when done
+      }, 1000);
+    } catch (error) {
+      reject(error); // Reject if there's an error
+    }
+  });
 };
 
 // Edit a board

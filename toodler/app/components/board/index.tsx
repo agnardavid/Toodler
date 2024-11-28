@@ -6,9 +6,9 @@ import { deleteBoard } from '@/app/Services/JsonInterpreter';
 
 interface Board {
   id: number;
-  photo: string;
+  photo: string | undefined;
   name: string;
-  description: string;
+  description: string | undefined;
   onPress: () => void;
   label?: string
 };
