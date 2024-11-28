@@ -3,14 +3,19 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import ButtonCard from '../board/index';
 import CreateBoardButton from '../addBoardButton';
-import data from '../../resources/data.json';
+// import data from '../../resources/data.json';
+import { getAllBoards, Board, deleteBoard } from '@/app/Services/JsonInterpreter';
+
+
 
 const Boards = () => {
 
   const router = useRouter();
   const { newBoard } = useLocalSearchParams();
 
-  const [boards, setBoards] = useState(data.boards);
+  const [boards, setBoards] = useState<Board[]>(getAllBoards());
+  console.log(boards);
+
 
   useEffect(() => {
     if (newBoard) {

@@ -27,9 +27,9 @@ export interface Task {
 };
 
 // Type assertions for `jsonData`
-let boards: Board[] = jsonData.boards as Board[];
-let lists: ListInterface[] = jsonData.lists as ListInterface[];
-let tasks: Task[] = jsonData.tasks as Task[];
+let boards: Board[] = jsonData.boards;
+let lists: ListInterface[] = jsonData.lists;
+let tasks: Task[] = jsonData.tasks;
 
 
 // Functions for boards
