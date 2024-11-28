@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 import styles from "./styles";
-//import { deleteBoard } from "@/app/Services/JsonInterpreter";
+import { deleteBoard } from "@/app/Services/JsonInterpreter";
 
 interface DeleteButtonProps {
     boardId: number;
