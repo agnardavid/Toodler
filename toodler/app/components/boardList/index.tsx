@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, FlatList } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
-import ButtonCard from '../board';
-import CreateBoardButton from '../createBoardButton';
+import ButtonCard from '../board/index';
+import CreateBoardButton from '../addBoardButton';
 import data from '../../resources/data.json';
 import styles from './styles';
 

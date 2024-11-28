@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet, Dimensions } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
-import data from '../views/data.json';
+import data from '../resources/data.json';
 
 // Get screen width for responsive styling
 const screenWidth = Dimensions.get('window').width;
