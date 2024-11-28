@@ -10,10 +10,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5', // Light background color
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    color: '#333333', // Dark text color for good contrast with the light background
+    fontSize: 24,           // Size of the title
+    fontWeight: 'bold',     // Bold font for emphasis
+    marginBottom: 16,       // Spacing below the title
+    textAlign: 'center',    // Horizontally center the title
+    color: '#333333',       // Dark text color
   },
   listCard: {
     width: screenWidth / 2 - 24, // Dividing screen width to fit 2 cards per row, with spacing
