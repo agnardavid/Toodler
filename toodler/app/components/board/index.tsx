@@ -1,10 +1,20 @@
 import React from 'react';
 import { TouchableOpacity, Image, Text, View } from 'react-native';
 import styles from './styles';
+import DeleteButton from '../deleteBoard';
+import { deleteBoard } from '@/app/Services/JsonInterpreter';
 
-/*
+interface Board {
+  id: number;
+  photo: string;
+  name: string;
+  description: string;
+  onPress: () => void;
+  label?: string
+};
+
 // Component for rendering each board
-const eachBoard: React.FC<eachBoardProps> = ({ id, photo, name, description, onPress, onDelete }) => {
+const eachBoard: React.FC<Board> = ({ id, photo, name, description, onPress }) => {
 
   const isPhotoValid = photo && photo.trim() !== '';                  // checks if photo is valid, i.e. not empty
 
@@ -30,11 +40,9 @@ const eachBoard: React.FC<eachBoardProps> = ({ id, photo, name, description, onP
         )}
         
       </View>
-
-      <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
-        <Text style={styles.deleteText}>Delete</Text>
-      </TouchableOpacity>
+      <DeleteButton boardId={id} onDelete={deleteBoard} />
     </TouchableOpacity>
   );
 };
-*/
+
+export default eachBoard
