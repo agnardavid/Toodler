@@ -1,7 +1,7 @@
 import jsonData from "../resources/data.json"
 
 // Define the type for a board
-interface Board {
+export interface Board {
   id: number;
   name: string,
   thumbnailPhoto: string,
@@ -9,7 +9,7 @@ interface Board {
   isDeleted:boolean
 };
 
-interface ListInterface {
+export interface ListInterface {
   id: number,
   name: string,
   color: string,
@@ -17,7 +17,7 @@ interface ListInterface {
   isDeleted:boolean
 };
 
-interface Task {
+export interface Task {
   id: number,
   name: string,
   description: string,
