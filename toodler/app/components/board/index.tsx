@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Image, Text, View } from 'react-native';
 import styles from './styles';
+import { deleteBoard } from '@/app/Services/JsonInterpreter';
 
 interface eachBoardProps {
   id: number;
@@ -40,7 +41,7 @@ const eachBoard: React.FC<eachBoardProps> = ({ id, photo, name, description, onP
         
       </View>
 
-      <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
+      <TouchableOpacity style={styles.deleteButton} onPress={() => deleteBoard(id)}>
         <Text style={styles.deleteText}>Delete</Text>
       </TouchableOpacity>
     </TouchableOpacity>
