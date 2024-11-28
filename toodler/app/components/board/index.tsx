@@ -2,7 +2,16 @@ import React from 'react';
 import { TouchableOpacity, Image, Text, View } from 'react-native';
 import styles from './styles';
 
-/*
+interface eachBoardProps {
+  id: number;
+  photo: string;
+  name: string;
+  description: string;
+  onPress: () => void;
+  onDelete: () => void;
+  label?: string;
+}
+
 // Component for rendering each board
 const eachBoard: React.FC<eachBoardProps> = ({ id, photo, name, description, onPress, onDelete }) => {
 
@@ -37,4 +46,5 @@ const eachBoard: React.FC<eachBoardProps> = ({ id, photo, name, description, onP
     </TouchableOpacity>
   );
 };
-*/
+
+export default eachBoard;
