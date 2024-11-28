@@ -1,27 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from './styles';
+import { getAllListsByBoardId, getAllTasks, ListInterface, Task, getBoard} from '@/app/Services/JsonInterpreter';
 
-const Lists = () => {
+const Lists = ({ boardId }: { boardId: number }) => {
+
   // Replace this dummy board data with real board data fetched from an API or state
-  const mockBoard = {
-    id: 1,
-    name: 'My Board',
-  };
+  const mockBoard = getBoard(boardId); // change 1 with the boardId passed on from board
 
   // Replace this dummy list data with real lists for the board, fetched from an API or state
-  const mockBoardLists = [
-    { id: 1, name: 'List 1', boardId: 1 },
-    { id: 2, name: 'List 2', boardId: 1 },
-  ];
+  const mockBoardLists:ListInterface[] = getAllListsByBoardId(boardId); // change 1 with the boardId passed on from board
 
   // Replace this dummy tasks data with real tasks associated with lists, fetched from an API or state
-  const mockTasks = [
-    { id: 1, name: 'Task 1', listId: 1 },
-    { id: 2, name: 'Task 2', listId: 1 },
-    { id: 3, name: 'Task 3', listId: 1 },
-    { id: 4, name: 'Task 4', listId: 2 },
-  ];
+  const mockTasks = getAllTasks();
 
   return (
     <View style={styles.container}>

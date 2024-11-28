@@ -79,12 +79,41 @@ export const editBoard = (boardId: number, name:string, photo:string, descriptio
 };
 
 // Get a specific board by id
-export const getBoard = (boardId: number, getDeleted:boolean = false): Board | undefined => {
+export const getBoard = (boardId: number, getDeleted:boolean = false): Board => {
   if (getDeleted){
-    return boards.find(board => board.id === boardId);
+    let board:Board|undefined = boards.find(board => board.id === boardId);
+    if (board !== undefined){
+      return board;
+    }
+    else{
+      // create an empty board to show, but not to push to boards
+      let emptyBoard: Board = {
+        id: Math.max(...boards.map((board) => board.id)) + 1,
+        name: "",
+        thumbnailPhoto: "",
+        description: "",
+        isDeleted: true
+      }
+      return emptyBoard;
+    }
+    
   }
   else{
-    return boards.find(board => board.id === boardId && board.isDeleted === false);
+    let board:Board|undefined = boards.find(board => board.id === boardId && board.isDeleted === false);
+    if (board !== undefined){
+      return board;
+    }
+    else{
+      // create an empty board to show, but not to push to boards
+      let emptyBoard: Board = {
+        id: Math.max(...boards.map((board) => board.id)) + 1,
+        name: "",
+        thumbnailPhoto: "",
+        description: "",
+        isDeleted: true
+      }
+      return emptyBoard;
+    }
   }
 };
 
@@ -151,6 +180,13 @@ export const getAllLists = (getDeleted:boolean=false): ListInterface[] => {
   return lists.filter(list => !list.isDeleted);
 };
 
+export const getAllListsByBoardId = (boardId:number, getDeleted:boolean=false): ListInterface[] => {
+  if (getDeleted){
+    return lists.filter(list => list.boardId === boardId);
+  }
+  return lists.filter(list => list.boardId === boardId && !list.isDeleted);
+}
+
 
 // Functions for tasks
 
@@ -205,3 +241,10 @@ export const getAllTasks = (getDeleted:boolean=false): Task[] => {
   }
   return tasks.filter(task => !task.isDeleted);
 };
+
+export const getAllTasksByListId = (listId:number, getDeleted:boolean=false): Task[] => {
+  if (getDeleted){
+    return tasks.filter(task => task.listId === listId);
+  }
+  return tasks.filter(task => task.listId === listId && !task.isDeleted);
+}
