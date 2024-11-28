@@ -2,19 +2,20 @@ import React from 'react';
 import { TouchableOpacity, Image, Text, View } from 'react-native';
 import styles from './styles';
 import DeleteButton from '../deleteBoard';
-import { deleteBoard } from '@/app/Services/JsonInterpreter';
+import { deleteBoard, Board } from '@/app/Services/JsonInterpreter';
 
-interface Board {
+interface BoardDisplay {
   id: number;
   photo: string | undefined;
   name: string;
   description: string | undefined;
+  setBoard: React.Dispatch<React.SetStateAction<Board[]>>;
   onPress: () => void;
   label?: string
 };
 
 // Component for rendering each board
-const EachBoard: React.FC<Board> = ({ id, photo, name, description, onPress }) => {
+const EachBoard: React.FC<BoardDisplay> = ({ id, photo, name, description, onPress, setBoard }) => {
 
   const isPhotoValid = photo && photo.trim() !== '';                  // checks if photo is valid, i.e. not empty
 
@@ -40,7 +41,7 @@ const EachBoard: React.FC<Board> = ({ id, photo, name, description, onPress }) =
         )}
         
       </View>
-      <DeleteButton boardId={id} onDelete={deleteBoard} />
+      <DeleteButton boardId={id} onDelete={deleteBoard} setBoard={setBoard} />
     </TouchableOpacity>
   );
 };

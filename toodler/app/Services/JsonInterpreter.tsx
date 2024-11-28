@@ -58,7 +58,7 @@ export const deleteBoard = async (boardId: number): Promise<void> => {
       }
       setTimeout(() => {
         resolve(); // Resolve when done
-      }, 1000);
+      }, 200);
     } catch (error) {
       reject(error); // Reject if there's an error
     }

@@ -25,6 +25,7 @@ const DisplayBoards = () => {
           photo={board.thumbnailPhoto} 
           name={board.name}
           description={board.description}
+          setBoard={setBoards}
           onPress={() => console.log(`Board ${board.id} clicked`)} 
         />
       ))}
