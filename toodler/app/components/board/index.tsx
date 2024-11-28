@@ -14,12 +14,12 @@ interface Board {
 };
 
 // Component for rendering each board
-const eachBoard: React.FC<Board> = ({ id, photo, name, description, onPress }) => {
+const EachBoard: React.FC<Board> = ({ id, photo, name, description, onPress }) => {
 
   const isPhotoValid = photo && photo.trim() !== '';                  // checks if photo is valid, i.e. not empty
 
   return (
-    // wrapping the entire board with press functionality, so the entire board becomes a button
+    
     <TouchableOpacity style={styles.card} onPress={onPress}>
 
       {isPhotoValid ? (                                               // if photo is not empty
@@ -45,4 +45,4 @@ const eachBoard: React.FC<Board> = ({ id, photo, name, description, onPress }) =
   );
 };
 
-export default eachBoard
+export default EachBoard
