@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TextInput, TouchableHighlight, Image, Button} from 'react-native';
-import CreateBoardButton from '../../components/createBoardButton/index';
+import CreateBoardButton from '@/app/components/createBoardButton/index';
+import TextIn from '@/app/components/textInputField';
 import styles from './styles';
 
 const CreateBoard = () => {
@@ -8,20 +9,9 @@ const CreateBoard = () => {
         <View style={styles.container}>
             <Text style={styles.heading}>Create New Board</Text>
 
-            <TextInput
-                style={styles.input}
-                placeholder="Board Name"
-            />
-            
-            <TextInput
-                style={styles.input}
-                placeholder="Description"
-            />
-
-            <TextInput
-                style={styles.input}
-                placeholder="Image URL"
-            />
+            <TextIn placeholder='Board Name' />
+            <TextIn placeholder="Description" />
+            <TextIn placeholder="Image URL" />
 
             <CreateBoardButton />
     </View>
