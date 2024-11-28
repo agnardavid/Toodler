@@ -5,6 +5,7 @@ import ButtonCard from '../board/index';
 import CreateBoardButton from '../addBoardButton';
 // import data from '../../resources/data.json';
 import { getAllBoards, Board, deleteBoard } from '@/app/Services/JsonInterpreter';
+import styles from './styles';
 
 
 
