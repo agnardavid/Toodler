@@ -5,14 +5,16 @@ interface Board {
   id: number;
   name: string,
   thumbnailPhoto: string,
-  description:string
+  description:string,
+  isDeleted:boolean
 };
 
 interface ListInterface {
   id: number,
   name: string,
   color: string,
-  boardId: number
+  boardId: number,
+  isDeleted:boolean
 };
 
 interface Task {
@@ -20,7 +22,8 @@ interface Task {
   name: string,
   description: string,
   isFinished: boolean,
-  listId: number
+  listId: number,
+  isDeleted:boolean
 };
 
 // Type assertions for `jsonData`
@@ -32,36 +35,57 @@ let tasks: Task[] = jsonData.tasks as Task[];
 // Functions for boards
 
 // Create a new board
-export const createBoard = (board: Board): void => {
-  board.id = Math.max(...boards.map((board) => board.id)) + 1;
+export const createBoard = (): number => {
+  let board: Board = {
+    id: Math.max(...boards.map((board) => board.id)) + 1,
+    name: "",
+    thumbnailPhoto: "",
+    description: "",
+    isDeleted: false
+  }
   boards.push(board);
+  return board.id;
 };
 
 // Delete a board
-export const deleteBoard = (boardId: number): void => {
-  boards = boards.filter(board => board.id !== boardId)
+export const deleteBoard = (boardId: number): boolean => {
+  let deleteBoard = boards.find(board => board.id === boardId);
+  if (deleteBoard !== undefined){
+    deleteBoard.isDeleted = true;
+    return true;
+  }
+  return false;
 };
 
 // Edit a board
-export const editBoard = (boardId: number, name:string, photo:string, description:string): boolean => {
+export const editBoard = (boardId: number, name:string, photo:string, description:string, isDeleted:boolean = false): boolean => {
   let editBoard = boards.find(board => board.id === boardId);
   if (editBoard !== undefined){
     editBoard.name = name;
     editBoard.thumbnailPhoto = photo;
     editBoard.description = description;
+    editBoard.isDeleted = isDeleted;
     return true;
   }
   return false;
 };
 
 // Get a specific board by id
-export const getBoard = (boardId: number): Board | undefined => {
-  return boards.find(board => board.id === boardId);
+export const getBoard = (boardId: number, getDeleted:boolean = false): Board | undefined => {
+  if (getDeleted){
+    return boards.find(board => board.id === boardId);
+  }
+  else{
+    return boards.find(board => board.id === boardId && board.isDeleted === false);
+  }
 };
 
 // Get all boards
-export const getAllBoards = (): Board[] => {
-  return boards.slice();
+export const getAllBoards = (getDeleted:boolean = false): Board[] => {
+  if (getDeleted){
+    return boards.slice();
+  }
+  return boards.filter(board => !board.isDeleted);
 };
 
 
@@ -69,14 +93,26 @@ export const getAllBoards = (): Board[] => {
 // Functions for lists
 
 // Create a list
-export const createList = (list: ListInterface): void => {
-  list.id = Math.max(...lists.map((list) => list.id)) + 1;
-  lists.push(list);
+export const createList = (boardId:number): number => {
+  let newList: ListInterface = {
+    id: Math.max(...lists.map((list) => list.id)) + 1,
+    name: "",
+    color: "",
+    boardId: boardId,
+    isDeleted: false
+  };
+  lists.push(newList);
+  return newList.id;
 };
 
 // Delete a list
-export const deleteList = (listId: number): void => {
-  lists = lists.filter(list => list.id !== listId)
+export const deleteList = (listId: number): boolean => {
+  let deleteList = lists.find(list => list.id === listId)
+  if (deleteList !== undefined){
+    deleteList.isDeleted = true;
+    return true;
+  }
+  return false;
 };
 
 // Edit a list
@@ -92,35 +128,45 @@ export const editList = (listId: number, name:string, color:string, boardId:numb
 };
 
 // Get a specific list by id
-export const getList = (listId: number): ListInterface | undefined => {
-  return lists.find(list => list.id === listId);
+export const getList = (listId: number, getDeleted:boolean=false): ListInterface | undefined => {
+  if (getDeleted){
+    return lists.find(list => list.id === listId);
+  }
+  return lists.find(list => list.id === listId && list.isDeleted === false);
 };
 
 // Get all lists
-export const getAllLists = (): ListInterface[] => {
-  return lists.slice();
+export const getAllLists = (getDeleted:boolean=false): ListInterface[] => {
+  if (getDeleted){
+    return lists.slice();
+  }
+  return lists.filter(list => !list.isDeleted);
 };
 
 
 // Functions for tasks
 
 // Create a task
-export const createTask = (task: Task): void => {
-  task.id = Math.max(...tasks.map((task) => task.id)) + 1;
+export const createTask = (listId:number): number => {
+  let task: Task = {
+    id: Math.max(...tasks.map((task) => task.id)) + 1,
+    name: "",
+    description: "",
+    isFinished: false,
+    listId: listId,
+    isDeleted:false
+  }
   tasks.push(task);
+  return task.id;
 };
 
 // Delete a task
-export const deleteTask = (taskId: number): void => {
-  tasks = tasks.filter(task => task.id !== taskId)
-};
-
-interface Task {
-  id: number,
-  name: string,
-  description: string,
-  isFinished: boolean,
-  listId: number
+export const deleteTask = (taskId: number): boolean => {
+  let deleteTask = tasks.find(task => task.id === taskId);
+  if (deleteTask !== undefined){
+    deleteTask.isDeleted = true;
+  }
+  return false;
 };
 
 // Edit a task
@@ -136,12 +182,18 @@ export const editTask = (taskId: number, name:string, description:string, isFini
   return false;
 };
 
-// Get a specific list by id
-export const getTask = (taskId: number): Task | undefined => {
-  return tasks.find(task => task.id === taskId);
+// Get a specific task by id
+export const getTask = (taskId: number, getDeleted:boolean=false): Task | undefined => {
+  if (getDeleted){
+    return tasks.find(task => task.id === taskId);
+  }
+  return tasks.find(task => task.id === taskId && task.isDeleted === false);
 };
 
-// Get all lists
-export const getAllTasks = (): Task[] => {
-  return tasks.slice();
+// Get all tasks
+export const getAllTasks = (getDeleted:boolean=false): Task[] => {
+  if (getDeleted){
+    return tasks.slice();
+  }
+  return tasks.filter(task => !task.isDeleted);
 };
