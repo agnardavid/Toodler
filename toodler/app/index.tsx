@@ -1,13 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import Boards from './components/boardList/index';
-import CreateBoard from './views/CreateBoard/index';
+import { View, StyleSheet, Text } from 'react-native';
 import AllBoards from './views/AllBoards';
 
 export default function App() {
   return (
-    <View >
-      <AllBoards />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <AllBoards/>
     </View>
   );
 }
