@@ -75,6 +75,43 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#888888',           // Gray color to match the border
   },
+  listHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8, // Space below the header
+  },
+  
+  
+  editButton: {
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    backgroundColor: '#cccccc', // Light grey background
+    borderRadius: 5,
+  },
+  
+  editButtonText: {
+    color: '#333333', // Dark grey text color
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  deleteButton: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+    backgroundColor: '#ff4d4f', // Red background for delete
+    borderRadius: 5,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+  },
+  
+  deleteButtonText: {
+    color: '#fff', // White text
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  
+  
   
   
 });

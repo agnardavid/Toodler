@@ -45,6 +45,17 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#888',
   },
+  editButton: {
+    marginTop: 10,
+    padding: 10,
+    backgroundColor: '#007BFF',
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  editButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
 });
 
 export default styles;
