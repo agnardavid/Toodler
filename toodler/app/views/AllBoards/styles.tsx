@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -59,6 +60,6 @@ const styles = StyleSheet.create({
       color: '#333',
       fontWeight: 'bold',
     }
-  });
+});
 
-export default styles
+export default styles;
