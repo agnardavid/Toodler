@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Boards from './components/boardList/index';
+import CreateBoard from './views/CreateBoard/index';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View >
       <Boards />
     </View>
   );
