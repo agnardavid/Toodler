@@ -30,6 +30,12 @@ export const TaskList: React.FC<TaskListProps> = ({ navigation, route }) => {
     navigation.navigate('EditTask', { taskId }); // Navigate to the EditTask screen
   };
 
+  const AddTask = () => {
+    console.log(`Navigating to CreateTask for listId: ${listId}`);
+    navigation.navigate('createTask', { listId }); // Pass listId to CreateTask
+  };
+  
+
   return (
     <View style={styles.container}>
       {/* Display the title of the list */}
@@ -84,7 +90,7 @@ export const TaskList: React.FC<TaskListProps> = ({ navigation, route }) => {
         ListFooterComponent={
             <TouchableOpacity
               style={styles.addButton}
-              onPress={() => {}} // No action
+              onPress={AddTask} // Directly call AddTask
               >
             
             
@@ -92,8 +98,7 @@ export const TaskList: React.FC<TaskListProps> = ({ navigation, route }) => {
             </TouchableOpacity>
           }
         
-      /> 
-      
+      />
     </View>
   );
 };
