@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import { getAllListsByBoardId, getAllTasks, ListInterface, Task, getBoard} from '@/app/Services/JsonInterpreter';
+import { getAllListsByBoardId, getAllTasks, ListInterface, Task, getBoard, deleteList} from '@/app/Services/JsonInterpreter';
 
 type ListsScreenProps = {
   navigation: any;
@@ -72,7 +72,9 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
                 style={styles.deleteButton}
                 onPress={(e) => {
                   e.stopPropagation(); // Prevent bubbling up to the list card button
-                  console.log(`Delete button pressed for: ${item.name}`);
+                  console.log(`Delete button pressed for: ${item.name}, ${item.id}`);
+                  deleteList(item.id);
+                  navigation.navigate('Lists', { boardId: Board.id });
                 }}
               >
                 <Text style={styles.deleteButtonText}>Delete</Text>
