@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, FlatList } from 'react-native';
-import EachBoard from '../board';
-import {Board, getAllBoards} from '@/app/Services/JsonInterpreter';
+import { View,ScrollView, FlatList } from 'react-native';
+import EachBoard from '../Board';
+import {AddButton, Board, getAllBoards} from '@/app/Services/JsonInterpreter';
 import styles from './styles';
+import AddBoardButton from '../AddBoardButton';
 
 
 
@@ -16,7 +17,7 @@ export const DisplayBoards: React.FC<{ navigation: any }> = ({ navigation }) => 
   }, []);
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
 
       {boards.map((board) => (
         <EachBoard
@@ -32,6 +33,8 @@ export const DisplayBoards: React.FC<{ navigation: any }> = ({ navigation }) => 
           } 
         />
       ))}
+      {/* Add the CreateBoardButton after rendering boards */}
+      <AddBoardButton onPress={() => navigation.navigate('CreateBoardScreen')} />
     </ScrollView>
   );
 };

@@ -5,7 +5,8 @@
             "name": "Trip to the Netherlands!",
             "thumbnailPhoto": "https://images.prismic.io/indiecampers-demo/9f34856d-05da-4afb-832f-d3a36de83b7f_Hero---Kinderdijk.jpg",
             "description": "Some stuff about some stuff with some stuff hello stuff stuff stuff ",
-            "isDeleted": false
+            "isDeleted": false,
+            "isAddButton": false
         },
         {
             "id": 2,

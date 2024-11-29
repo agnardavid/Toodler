@@ -1,29 +1,17 @@
 import React from 'react';
-import { Button, StyleSheet, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { TouchableOpacity, Text } from 'react-native';
+import { styles } from './styles'; 
 
-const addBoardButton = () => {
-  // Router for navigation
-  const router = useRouter();
+interface AddBoardButtonProps {
+  onPress: () => void;
+}
 
-  // navigates to the createBoardScreen page
-  const handlePress = () => {
-    router.push('/views/createBoardScreen');
-  };
-
-  // Displays a button, and calls handlePress when pressed/clicked on
+const AddBoardButton: React.FC<AddBoardButtonProps> = ({ onPress }) => {
   return (
-    <View style={styles.container}>
-      <Button title="Create New Board" onPress={handlePress} />
-    </View>
+    <TouchableOpacity style={styles.addButton} onPress={onPress}>
+      <Text style={styles.addButtonText}>+</Text>
+    </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 20,
-    alignItems: 'center',
-  },
-});
-
-export default addBoardButton;
+export default AddBoardButton;

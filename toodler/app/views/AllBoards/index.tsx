@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, TextInput, TouchableHighlight, Image, Button, ScrollView,FlatList, TouchableOpacity} from 'react-native';
-import DisplayBoards from '@/app/components/boardList';
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+import DisplayBoards from '@/app/components/BoardList';
 import styles from './styles';
 
 export const AllBoards: React.FC<{ navigation: any }> = ({ navigation }) => {
@@ -10,14 +10,14 @@ export const AllBoards: React.FC<{ navigation: any }> = ({ navigation }) => {
         <Text>All Boards</Text>
         <DisplayBoards navigation={navigation} />
         {
-          <TouchableOpacity
-            style={styles.addButton}
-            onPress={() => 
-              navigation.navigate('CreateBoardScreen')
-            }
-          >
-            <Text style={styles.addButtonText}>+ Add Board</Text>
-          </TouchableOpacity>
+          // <TouchableOpacity
+          //   style={styles.addButton}
+          //   onPress={() => 
+          //     navigation.navigate('CreateBoardScreen')
+          //   }
+          // >
+          //   <Text style={styles.addButtonText}>+</Text>
+          // </TouchableOpacity>
         }
         </View>
     );

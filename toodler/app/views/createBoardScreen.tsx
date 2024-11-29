@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { createBoard, editBoard } from '../Services/JsonInterpreter';
 
 const createBoardScreen: React.FC<{ navigation: any }> = ({ navigation }) => {

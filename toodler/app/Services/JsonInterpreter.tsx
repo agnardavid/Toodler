@@ -6,8 +6,12 @@ export interface Board {
   name: string,
   thumbnailPhoto?: string,
   description?:string,
-  isDeleted:boolean
+  isDeleted:boolean,
 };
+
+export interface AddButton {
+  isAddButton: boolean;
+}
 
 export interface ListInterface {
   id: number,

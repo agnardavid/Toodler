@@ -2,6 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 // Get screen width for responsive styling
 const screenWidth = Dimensions.get('window').width;
+const cardWidth = (screenWidth - 55) / 2
 
 const styles = StyleSheet.create({
   container: {
@@ -16,15 +17,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
   },
+  listContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
   listCard: {
-    width: screenWidth / 2 - 24, // Dividing screen width to fit 2 cards per row, with spacing
-    height: 150, // Fixed height for the card
-    margin: 8,
+    width: cardWidth,
+    flexShrink: 0,
+    flexGrow: 1,
+    display: 'flex',
+    height: 150, 
+    margin: 4,
     padding: 12,
     borderRadius: 10,
     backgroundColor: '#ffffff', // Neutral white background
     borderWidth: 3, // Increase border width for visibility
-    borderColor: '#dddddd', // Default border color (will be overridden dynamically)
+    borderColor: '#dddddd', 
     justifyContent: 'space-between',
     shadowColor: '#000', // Add a slight shadow to give depth to the card
     shadowOffset: { width: 0, height: 2 },
@@ -84,10 +94,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   addButton: {
-    width: screenWidth / 2 - 24,
+    width: cardWidth,
     height: 150,
-    margin: 8,
-    padding: 12,
+    margin: 4,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: '#888888',
@@ -97,7 +106,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   addButtonText: {
-    fontSize: 36,
+    fontSize: 50,
+    lineHeight: 0,
     fontWeight: 'bold',
     color: '#888888',
   },

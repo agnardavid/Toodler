@@ -12,7 +12,7 @@ type TaskListProps = {
   };
 };
 
-export const TaskList: React.FC<TaskListProps> = ({ navigation, route }) => {
+export const Tasks: React.FC<TaskListProps> = ({ navigation, route }) => {
   
   const { listId } = route.params;
 
@@ -42,4 +42,4 @@ export const TaskList: React.FC<TaskListProps> = ({ navigation, route }) => {
   );
 };
 
-export default TaskList;
+export default Tasks;
