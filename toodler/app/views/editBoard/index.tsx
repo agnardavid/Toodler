@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Image, ScrollView } from 'react-native';
 import styles from './styles';
-import { getBoard } from '@/app/Services/JsonInterpreter';
+import { getBoard, editBoard } from '@/app/Services/JsonInterpreter';
 
 type EditBoardProps = {
   navigation: any;
@@ -26,6 +26,8 @@ const EditBoard: React.FC<EditBoardProps> = ({ navigation, route }) => {
   
   // Save button handler
   const handleSave = () => {
+    const success:boolean = editBoard(Board.id, name, thumbnailPhoto, description);
+    /*
     console.log("Board updated:");
     console.log({
       id: Board.id,
@@ -33,7 +35,11 @@ const EditBoard: React.FC<EditBoardProps> = ({ navigation, route }) => {
       description,
       thumbnailPhoto,
     });
-    alert("Changes saved!");
+    */
+    alert(success);
+    
+    
+    navigation.navigate('AllBoards');
   };
   
 

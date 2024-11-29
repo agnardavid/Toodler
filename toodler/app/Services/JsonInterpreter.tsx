@@ -66,7 +66,7 @@ export const deleteBoard = async (boardId: number): Promise<void> => {
 };
 
 // Edit a board
-export const editBoard = (boardId: number, name:string, photo:string, description:string, isDeleted:boolean = false): boolean => {
+export const editBoard = (boardId: number, name:string|undefined="", photo:string|undefined="", description:string|undefined="", isDeleted:boolean = false): boolean => {
   let editBoard = boards.find(board => board.id === boardId);
   if (editBoard !== undefined){
     editBoard.name = name;
