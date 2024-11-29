@@ -16,24 +16,24 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
 
   const { boardId } = route.params;
   
-  const mockBoard = getBoard(boardId); 
+  const Board = getBoard(boardId); 
 
   
-  const mockBoardLists:ListInterface[] = getAllListsByBoardId(boardId); 
+  const BoardLists:ListInterface[] = getAllListsByBoardId(boardId); 
 
   
-  const mockTasks = getAllTasks();
+  const Tasks = getAllTasks();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{mockBoard.name}</Text>
+      <Text style={styles.title}>{Board.name}</Text>
       <FlatList
-        data={mockBoardLists} // Replace mockBoardLists with real data
+        data={BoardLists} 
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
         renderItem={({ item }) => {
-          // Filter tasks specific to the current list; replace mockTasks with real data
-          const tasks = mockTasks.filter((task) => task.listId === item.id);
+          // Filter tasks specific to the current list;
+          const tasks = Tasks.filter((task) => task.listId === item.id);
 
           return (
             <TouchableOpacity
@@ -50,7 +50,7 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
                   onPress={(e) => {
                     e.stopPropagation(); // Prevent bubbling up to the list card button
                     console.log(`Edit button pressed for: ${item.name}`);
-                    navigation.navigate('EditBoard');
+                    navigation.navigate('', { boardId: Board.id }); // put edit list here
                   }}
                 >
                   <Text style={styles.editButtonText}>Edit</Text>

@@ -25,6 +25,7 @@ export const DisplayBoards: React.FC<{ navigation: any }> = ({ navigation }) => 
           photo={board.thumbnailPhoto} 
           name={board.name}
           description={board.description}
+          navigation={navigation}
           setBoard={setBoards}
           onPress={() =>
             navigation.navigate('Lists', { boardId: board.id })

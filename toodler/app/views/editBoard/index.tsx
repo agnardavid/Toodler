@@ -1,33 +1,41 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Image, ScrollView } from 'react-native';
 import styles from './styles';
+import { getBoard } from '@/app/Services/JsonInterpreter';
 
-const EditBoard = () => {
-  // Dummy data
-  const dummyBoard = {
-    id: 1,
-    name: "Trip to the Netherlands!",
-    thumbnailPhoto: "https://images.prismic.io/indiecampers-demo/9f34856d-05da-4afb-832f-d3a36de83b7f_Hero---Kinderdijk.jpg",
-    description: "Some stuff about some stuff with some stuff hello stuff stuff stuff ",
-    isDeleted: false,
+type EditBoardProps = {
+  navigation: any;
+  route: {
+    params: {
+      boardId: number;
+    };
   };
+};
+
+const EditBoard: React.FC<EditBoardProps> = ({ navigation, route }) => {
+  const { boardId } = route.params;
+  
+
+  const Board = getBoard(boardId);
 
   // State to manage the form fields
-  const [name, setName] = useState(dummyBoard.name);
-  const [description, setDescription] = useState(dummyBoard.description);
-  const [thumbnailPhoto, setThumbnailPhoto] = useState(dummyBoard.thumbnailPhoto);
+  const [name, setName] = useState(Board.name);
+  const [description, setDescription] = useState(Board.description);
+  const [thumbnailPhoto, setThumbnailPhoto] = useState(Board.thumbnailPhoto);
 
+  
   // Save button handler
   const handleSave = () => {
     console.log("Board updated:");
     console.log({
-      id: dummyBoard.id,
+      id: Board.id,
       name,
       description,
       thumbnailPhoto,
     });
     alert("Changes saved!");
   };
+  
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
