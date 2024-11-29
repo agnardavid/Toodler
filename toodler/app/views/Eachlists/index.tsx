@@ -40,6 +40,7 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
               style={styles.listCard}
               onPress={() => {
                 console.log(`List card pressed for: ${item.name}`);
+                navigation.navigate('TaskList', { listId: item.id})
               }}
             >
               {/* List title and Edit button */}
@@ -86,7 +87,7 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => 
-              navigation.navigate('CreateBoard')
+              navigation.navigate('CreateBoardScreen')
             }
           >
             <Text style={styles.addButtonText}>+ Add List</Text>

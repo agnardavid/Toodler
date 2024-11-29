@@ -3,10 +3,19 @@ import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import { getAllTasksByListId } from '@/app/Services/JsonInterpreter';
 
-// Hardcoded listId
-const listId = 1;
+type TaskListProps = {
+  navigation: any;
+  route: {
+    params: {
+      listId: number;
+    };
+  };
+};
 
-const TaskList = () => {
+export const TaskList: React.FC<TaskListProps> = ({ navigation, route }) => {
+  
+  const { listId } = route.params;
+
   // Filter tasks for the specific listId
   const filteredTasks = getAllTasksByListId(listId);
 
