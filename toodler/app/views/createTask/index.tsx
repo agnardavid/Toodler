@@ -13,8 +13,9 @@ const CreateTask: React.FC<{ navigation: any; route: { params: { listId: number 
   const handleCreateTask = () => {
     if (!name.trim()) {
       alert('Task name is required!');
-      return;
+      
     }
+    
 
     // Step 1: Create a new task with default values
     const newTaskId = createTask(listId);
@@ -23,11 +24,12 @@ const CreateTask: React.FC<{ navigation: any; route: { params: { listId: number 
     const success = editTask(newTaskId, name, description, isFinished, listId);
 
     if (success) {
-      alert('Task created successfully!');
-      navigation.goBack(); // Navigate back to the task list screen
+      
+      navigation.navigate('TaskList', { listId: listId });
     } else {
       alert('Failed to create task. Please try again.');
     }
+    
   };
 
   return (
@@ -54,12 +56,12 @@ const CreateTask: React.FC<{ navigation: any; route: { params: { listId: number 
       {/* Task Status Toggle */}
       <TouchableOpacity
         style={[
-          styles.statusButton,
+          //styles.statusButton,
           { backgroundColor: isFinished ? '#4CAF50' : '#FF6F61' },
         ]}
         onPress={() => setIsFinished(!isFinished)}
       >
-        <Text style={styles.statusButtonText}>
+        <Text /*style={styles.statusButtonText}*/>
           {isFinished ? 'Mark as Pending' : 'Mark as Finished'}
         </Text>
       </TouchableOpacity>

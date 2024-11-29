@@ -36,9 +36,6 @@ const EditBoard: React.FC<EditBoardProps> = ({ navigation, route }) => {
       thumbnailPhoto,
     });
     */
-    alert(success);
-    
-    
     navigation.navigate('AllBoards');
   };
   

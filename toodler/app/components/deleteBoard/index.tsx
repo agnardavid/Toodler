@@ -3,7 +3,7 @@ import { TouchableOpacity, Text } from "react-native";
 import styles from "./styles";
 import { Board, getAllBoards } from "@/app/Services/JsonInterpreter";
 
-import DisplayBoards from "../BoardList";
+import DisplayBoards from "../boardList/index";
 
 interface DeleteButtonProps {
     boardId: number;
