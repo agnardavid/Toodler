@@ -8,6 +8,7 @@ type EditTaskProps = {
   route: {
     params: {
       taskId: number;
+      listId: number;
     };
   };
 };
@@ -40,7 +41,7 @@ const EditTask: React.FC<EditTaskProps> = ({ navigation, route }) => {
 
     if (success) {
       Alert.alert('Success', 'Task updated successfully!');
-      navigation.goBack(); // Go back to the previous screen
+      navigation.navigate('TaskList', { listId: Task.listId });
     } else {
       Alert.alert('Error', 'Failed to update task. Please try again.');
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import { getAllListsByBoardId, getAllTasks, ListInterface, Task, getBoard, deleteList } from '@/app/Services/JsonInterpreter';
+import { getAllListsByBoardId, getAllTasks, getBoard, deleteList } from '@/app/Services/JsonInterpreter';
 
 type ListsScreenProps = {
   navigation: any;
@@ -12,10 +12,14 @@ type ListsScreenProps = {
   };
 };
 
+export interface AddButton {
+  isAddButton: boolean;
+}
+
 export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
   const { boardId } = route.params;
   const Board = getBoard(boardId); 
-  const BoardLists: ListInterface[] = getAllListsByBoardId(boardId); 
+  const BoardLists = getAllListsByBoardId(boardId); 
   const Tasks = getAllTasks();
 
   return (

@@ -9,10 +9,6 @@ export interface Board {
   isDeleted:boolean,
 };
 
-export interface AddButton {
-  isAddButton: boolean;
-}
-
 export interface ListInterface {
   id: number,
   name: string,
