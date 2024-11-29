@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Image, Text, View } from 'react-native';
 import styles from './styles';
-import DeleteButton from '../DeleteBoard';
+import DeleteButton from '../deleteBoard';
 import { deleteBoard, Board } from '@/app/Services/JsonInterpreter';
 
 interface BoardDisplay {

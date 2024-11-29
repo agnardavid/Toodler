@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TextInput, TouchableHighlight, Image, Button} from 'react-native';
-import CreateBoardButton from '@/app/components/CreateBoardButton/index';
-import TextIn from '@/app/components/TextInputField';
+import CreateBoardButton from '@/app/components/createBoardButton/index';
+import TextIn from '@/app/components/textInputField';
 import styles from './styles';
 
 type CreateBoardProps = {
