@@ -4,6 +4,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 const screenWidth = Dimensions.get('window').width;
 const cardWidth = (screenWidth - 55) / 2
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

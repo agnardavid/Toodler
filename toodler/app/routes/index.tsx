@@ -12,10 +12,10 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 /* Import view components */
 import AllBoards from '../views/AllBoards';
-import Lists from '../views/Lists';
+import Lists from '../views/Lists/index';
 import CreateBoard from '../views/CreateBoard';
-import CreateList from '../views/CreateList';
-import TaskList from '../views/Tasks'
+import TaskList, { Tasks } from '../views/Tasks'
+import EditTask from '../views/EditTask';
 import EditBoard from '../views/editBoard';
 import createBoardScreen from '../views/createBoardScreen';
 
@@ -26,8 +26,9 @@ const Routes: React.FC = () => {
         <Stack.Screen name="AllBoards" component={AllBoards} />
         <Stack.Screen name="Lists" component={Lists} />
         <Stack.Screen name="CreateBoardScreen" component={createBoardScreen} />
-        <Stack.Screen name="TaskList" component={TaskList} />
+        <Stack.Screen name="TaskList" component={Tasks} />
         <Stack.Screen name="EditBoard" component={EditBoard}/>
+        <Stack.Screen name="EditTask" component={EditTask}/>
         <Stack.Screen name="CreateList" component={CreateList}/>
       </Stack.Navigator>
     
