@@ -3,6 +3,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 // Get screen width for responsive styling
 const screenWidth = Dimensions.get('window').width;
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
