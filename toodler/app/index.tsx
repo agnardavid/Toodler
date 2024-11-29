@@ -1,20 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import AllBoards from './views/AllBoards';
-import Lists from './views/Eachlists';
-import CreateBoard from './views/CreateBoard';
-import TaskList from './views/Eachtasks';
+import Routes from './routes/index'
 
 export default function App() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-       <CreateBoard/>
-    </View>
-  );
+  return <Routes />;
+  
 }
 // <Lists boardId={2}/>
-// <AllBoards>
-
+// <AllBoards/>
+// <CreateBoard/>
+// <TaskList/>
+// <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 const styles = StyleSheet.create({
   container: {
     flex: 1,

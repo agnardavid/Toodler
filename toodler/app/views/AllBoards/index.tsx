@@ -3,12 +3,12 @@ import {View, Text, TextInput, TouchableHighlight, Image, Button, ScrollView} fr
 import DisplayBoards from '@/app/components/boardList';
 import styles from './styles';
 
-const AllBoards = () => {
+export const AllBoards: React.FC<{ navigation: any }> = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
         <Text>All Boards</Text>
-        <DisplayBoards />
+        <DisplayBoards navigation={navigation} />
         </View>
     );
 };

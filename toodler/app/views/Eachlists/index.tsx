@@ -3,15 +3,24 @@ import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import { getAllListsByBoardId, getAllTasks, ListInterface, Task, getBoard} from '@/app/Services/JsonInterpreter';
 
-const Lists = ({ boardId }: { boardId: number }) => {
+type ListsScreenProps = {
+  route: {
+    params: {
+      boardId: number;
+    };
+  };
+};
 
-  // Replace this dummy board data with real board data fetched from an API or state
-  const mockBoard = getBoard(boardId); // change 1 with the boardId passed on from board
+export const Lists = ({ route }: ListsScreenProps) => {
 
-  // Replace this dummy list data with real lists for the board, fetched from an API or state
-  const mockBoardLists:ListInterface[] = getAllListsByBoardId(boardId); // change 1 with the boardId passed on from board
+  const { boardId } = route.params;
+  
+  const mockBoard = getBoard(boardId); 
 
-  // Replace this dummy tasks data with real tasks associated with lists, fetched from an API or state
+  
+  const mockBoardLists:ListInterface[] = getAllListsByBoardId(boardId); 
+
+  
   const mockTasks = getAllTasks();
 
   return (

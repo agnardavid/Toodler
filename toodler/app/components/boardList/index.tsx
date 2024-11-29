@@ -6,7 +6,7 @@ import styles from './styles';
 
 
 
-const DisplayBoards = () => {
+export const DisplayBoards: React.FC<{ navigation: any }> = ({ navigation }) => {
 
   const [boards, setBoards] = useState<Board[]>([]);
 
@@ -26,7 +26,9 @@ const DisplayBoards = () => {
           name={board.name}
           description={board.description}
           setBoard={setBoards}
-          onPress={() => console.log(`Board ${board.id} clicked`)} 
+          onPress={() =>
+            navigation.navigate('Lists', { boardId: board.id })
+          } 
         />
       ))}
     </ScrollView>
