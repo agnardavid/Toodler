@@ -13,8 +13,9 @@ const Stack = createStackNavigator<RootStackParamList>();
 /* Import view components */
 import AllBoards from '../views/AllBoards';
 import Lists from '../views/Lists/index';
+import CreateList from '../views/CreateList';
 import CreateBoard from '../views/CreateBoard';
-import TaskList, { Tasks } from '../views/Tasks'
+import Tasks from '../views/Tasks'
 import EditTask from '../views/EditTask';
 import EditBoard from '../views/editBoard';
 import createBoardScreen from '../views/createBoardScreen';
