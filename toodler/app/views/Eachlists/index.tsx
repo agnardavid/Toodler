@@ -4,6 +4,7 @@ import styles from './styles';
 import { getAllListsByBoardId, getAllTasks, ListInterface, Task, getBoard} from '@/app/Services/JsonInterpreter';
 
 type ListsScreenProps = {
+  navigation: any;
   route: {
     params: {
       boardId: number;
@@ -11,7 +12,7 @@ type ListsScreenProps = {
   };
 };
 
-export const Lists = ({ route }: ListsScreenProps) => {
+export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
 
   const { boardId } = route.params;
   
@@ -49,6 +50,7 @@ export const Lists = ({ route }: ListsScreenProps) => {
                   onPress={(e) => {
                     e.stopPropagation(); // Prevent bubbling up to the list card button
                     console.log(`Edit button pressed for: ${item.name}`);
+                    navigation.navigate('EditBoard');
                   }}
                 >
                   <Text style={styles.editButtonText}>Edit</Text>
@@ -81,9 +83,9 @@ export const Lists = ({ route }: ListsScreenProps) => {
         ListFooterComponent={
           <TouchableOpacity
             style={styles.addButton}
-            onPress={() => {
-              console.log('Add List button pressed');
-            }}
+            onPress={() => 
+              navigation.navigate('CreateBoard')
+            }
           >
             <Text style={styles.addButtonText}>+ Add List</Text>
           </TouchableOpacity>
