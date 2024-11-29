@@ -9,22 +9,23 @@ interface BoardDisplay {
   photo: string | undefined;
   name: string;
   description: string | undefined;
+  navigation: any;
   setBoard: React.Dispatch<React.SetStateAction<Board[]>>;
   onPress: () => void;
   label?: string;
 }
 
 // Component for rendering each board
-const EachBoard: React.FC<BoardDisplay> = ({
+export const EachBoard: React.FC<BoardDisplay> = ({
   id,
   photo,
   name,
   description,
+  navigation,
   onPress,
   setBoard,
 }) => {
   const isPhotoValid = photo && photo.trim() !== ''; // checks if photo is valid, i.e. not empty
-
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       {isPhotoValid ? (
@@ -51,6 +52,7 @@ const EachBoard: React.FC<BoardDisplay> = ({
         onPress={(e) => {
           e.stopPropagation(); // Prevent bubbling up to the card's onPress
           console.log(`Edit button pressed for board: ${name}`);
+          navigation.navigate('EditBoard', { boardId: id });
         }}
       >
         <Text style={styles.editButtonText}>Edit</Text>

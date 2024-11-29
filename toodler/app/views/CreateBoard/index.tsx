@@ -4,7 +4,16 @@ import CreateBoardButton from '@/app/components/createBoardButton/index';
 import TextIn from '@/app/components/textInputField';
 import styles from './styles';
 
-const CreateBoard = () => {
+type CreateBoardProps = {
+  navigation: any;
+  route: {
+    params: {
+      boardId: number;
+    };
+  };
+};
+
+const CreateBoard: React.FC<CreateBoardProps> = ({ navigation, route }) => {
     return(
         <View style={styles.container}>
             <Text style={styles.heading}>Create New Board</Text>

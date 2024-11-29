@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, FlatList } from 'react-native';
+import { View,ScrollView, FlatList } from 'react-native';
 import EachBoard from '../board';
-import {Board, getAllBoards} from '@/app/Services/JsonInterpreter';
+import {AddButton, Board, getAllBoards} from '@/app/Services/JsonInterpreter';
 import styles from './styles';
+import AddBoardButton from '../addBoardButton';
 
 
 
-const DisplayBoards = () => {
+export const DisplayBoards: React.FC<{ navigation: any }> = ({ navigation }) => {
 
   const [boards, setBoards] = useState<Board[]>([]);
 
@@ -16,7 +17,7 @@ const DisplayBoards = () => {
   }, []);
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
 
       {boards.map((board) => (
         <EachBoard
@@ -25,10 +26,15 @@ const DisplayBoards = () => {
           photo={board.thumbnailPhoto} 
           name={board.name}
           description={board.description}
+          navigation={navigation}
           setBoard={setBoards}
-          onPress={() => console.log(`Board ${board.id} clicked`)} 
+          onPress={() =>
+            navigation.navigate('Lists', { boardId: board.id })
+          } 
         />
       ))}
+      {/* Add the CreateBoardButton after rendering boards */}
+      <AddBoardButton onPress={() => navigation.navigate('CreateBoardScreen')} />
     </ScrollView>
   );
 };

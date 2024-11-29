@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Image } from 'react-native';
-import { useRouter } from 'expo-router';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { createBoard, editBoard } from '../Services/JsonInterpreter';
 
-const createBoardScreen = () => {
+const createBoardScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
 
-  const router = useRouter();
-
   const handleCreateBoard = () => {
     console.log('New board created:', { name, description, image });
-    router.push('../');
+    let newBoardId:number = createBoard();
+    editBoard(newBoardId, name, image, description);
+    navigation.navigate('AllBoards');
   };
 
   return (
