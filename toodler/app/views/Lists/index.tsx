@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import { getAllListsByBoardId, ListInterface ,getAllTasks, getBoard, deleteList } from '@/app/Services/JsonInterpreter';
+import { getAllListsByBoardId, getAllTasks, getBoard, deleteList } from '@/app/Services/JsonInterpreter';
 
 type ListsScreenProps = {
   navigation: any;
@@ -12,15 +12,16 @@ type ListsScreenProps = {
   };
 };
 
-export interface AddButton {
-  isAddButton: boolean;
-}
-
 export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
   const { boardId } = route.params;
   const Board = getBoard(boardId); 
   const BoardLists = getAllListsByBoardId(boardId); 
   const Tasks = getAllTasks();
+
+  const BoardListsWithAddButton = [
+    ...BoardLists,
+    { id: 'addButton', isAddButton: true }, // Add button placeholder
+  ];
 
   return (
     <View style={styles.container}>
@@ -28,7 +29,7 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
 
       <View style={styles.listContainer}>
         <FlatList
-          data={BoardLists} // Add a placeholder for addButton
+          data={BoardListsWithAddButton} // Add a placeholder for addButton
           keyExtractor={(item) => item.id.toString()}
           numColumns={2} // Two columns layout
           columnWrapperStyle={{ justifyContent: 'space-between' }} // Ensure cards are spaced correctly

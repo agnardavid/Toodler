@@ -4,16 +4,14 @@ import { styles } from './styles';
 
 interface AddBoardButtonProps {
   navigation: any;
-  onPress: () => void;
 }
 
 const AddBoardButton: React.FC<AddBoardButtonProps> = ({ navigation }) => {
   return (
     <TouchableOpacity
       style={styles.addButton}
-      onPress={() => 
-        navigation.navigate('CreateBoardScreen')
-      }
+      
+      onPress={() => navigation.navigate('CreateBoard')}
     >
       <Text style={styles.addButtonText}>+</Text>
     </TouchableOpacity>

@@ -1,28 +1,44 @@
-import React from 'react';
-import {View, Text, TextInput, TouchableHighlight, Image, Button} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput } from 'react-native';
 import CreateBoardButton from '@/app/components/CreateBoardButton/index';
-import TextIn from '@/app/components/TextInputField';
 import styles from './styles';
+import { handleCreateBoard } from '@/app/components/HandleCreateBoard';
 
-type CreateBoardProps = {
+interface CreateBoardProps {
   navigation: any;
-  route: {
-    params: {
-      boardId: number;
-    };
-  };
 };
 
-const CreateBoard: React.FC<CreateBoardProps> = ({ navigation, route }) => {
-    return(
-        <View style={styles.container}>
-            <Text style={styles.heading}>Create New Board</Text>
+const CreateBoard: React.FC<CreateBoardProps> = ({ navigation }) => {
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
 
-            <TextIn placeholder='Board Name' />
-            <TextIn placeholder="Description" />
-            <TextIn placeholder="Image URL" />
+  return (
+    <View style={styles.container}>
+      <Text style={styles.heading}>Create New Board</Text>
 
-            <CreateBoardButton />
+      <TextInput
+        style={styles.input}
+        placeholder="Board Name"
+        value={name}
+        onChangeText={setName}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Description"
+        value={description}
+        onChangeText={setDescription}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Image URL"
+        value={image}
+        onChangeText={setImage}
+      />
+
+      <CreateBoardButton onPress={() => handleCreateBoard(name, image, description, navigation)}/>
     </View>
   );
 };

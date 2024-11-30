@@ -10,17 +10,7 @@ export const AllBoards: React.FC<{ navigation: any }> = ({ navigation }) => {
         <View style={styles.container}>
         <Text>All Boards</Text>
         <DisplayBoards navigation={navigation} />
-        <AddBoardButton onPress={() => navigation.navigate('CreateBoardScreen')} />
-        {
-          // <TouchableOpacity
-          //   style={styles.addButton}
-          //   onPress={() => 
-          //     navigation.navigate('CreateBoardScreen')
-          //   }
-          // >
-          //   <Text style={styles.addButtonText}>+</Text>
-          // </TouchableOpacity>
-        }
+        <AddBoardButton navigation={navigation} />
         </View>
     );
 };
