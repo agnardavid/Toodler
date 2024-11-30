@@ -33,7 +33,7 @@ export const Tasks: React.FC<TaskListProps> = ({ navigation, route }) => {
 
   const AddTask = () => {
     console.log(`Navigating to CreateTask for listId: ${listId}`);
-    navigation.navigate('createTask', { listId }); // Pass listId to CreateTask
+    navigation.navigate('CreateTask', { listId }); // Pass listId to CreateTask
   };
   
 

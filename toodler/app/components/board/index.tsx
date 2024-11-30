@@ -61,7 +61,10 @@ export const EachBoard: React.FC<BoardDisplay> = ({
           navigation.navigate('EditBoard', { boardId: id });
         }}
       >
-        <Text style={styles.editButtonText}>Edit</Text>
+        <Image
+          source={{uri: 'https://e7.pngegg.com/pngimages/493/715/png-clipart-pencil-computer-icons-pencil-crayons-text-logo.png'}}
+          style={styles.editButtonImage}
+        />
       </TouchableOpacity>
     </TouchableOpacity>
   );

@@ -24,15 +24,40 @@ const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#f9f9f9', // Light grey background for inputs
   },
+  TextContainerWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center', 
+  },
+  TextContainer: {
+    alignSelf: 'center',
+    borderRadius: 8,
+    width: 160,
+    height: 30,
+    justifyContent: 'center', // Centers vertically
+    alignItems: 'center',    // Centers horizontally
+    marginBottom: 20,
+    
+    
+  },
+  finishedButton: {
+    color: 'white',
+    textAlign: 'center', 
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlignVertical: 'center', 
+    paddingBottom: 2,
+  },
+  
   textArea: {
     height: 100,
     textAlignVertical: 'top', // Ensure text starts at the top for multiline inputs
   },
   button: {
-    marginVertical: 10, // Space between buttons
-    paddingVertical: 12,
-    borderRadius: 5,
-    backgroundColor: '#4CAF50', // Green button for "Save"
+    
+    marginVertical: 100, // Space between buttons
+    
+    borderRadius: 2,
+    color: '#4CAF50', // Green button for "Save"
     alignItems: 'center',
   },
   buttonText: {

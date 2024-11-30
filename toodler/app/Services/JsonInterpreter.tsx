@@ -12,7 +12,7 @@ export interface Board {
 export interface ListInterface {
   id: number,
   name: string,
-  color: string,
+  color: string | null,
   boardId: number,
   isDeleted:boolean,
   isAddButton:boolean,
@@ -22,7 +22,7 @@ export interface ListInterface {
 export interface Task {
   id: number,
   name: string,
-  description: string,
+  description: string | undefined,
   isFinished: boolean,
   listId: number,
   isDeleted:boolean
@@ -69,6 +69,15 @@ export const deleteBoard = async (boardId: number): Promise<void> => {
 
 // Edit a board
 export const editBoard = (boardId: number, name:string|undefined="", photo:string|undefined="", description:string|undefined="", isDeleted:boolean = false): boolean => {
+  if (name === undefined){
+    name = "";
+  }
+  if (photo === undefined){
+    photo = "";
+  }
+  if (description === undefined){
+    description = "";
+  }
   let editBoard = boards.find(board => board.id === boardId);
   if (editBoard !== undefined){
     editBoard.name = name;
@@ -157,7 +166,10 @@ export const deleteList = (listId: number): boolean => {
 };
 
 // Edit a list
-export const editList = (listId: number, name:string, color:string, boardId:number): boolean => {
+export const editList = (listId: number, name:string, color:string|null="", boardId:number): boolean => {
+  if (color === null){
+    color = "";
+  }
   let editList = lists.find(list => list.id === listId);
   if (editList !== undefined){
     editList.name = name;
@@ -218,7 +230,11 @@ export const deleteTask = (taskId: number): boolean => {
 };
 
 // Edit a task
-export const editTask = (taskId: number, name:string, description:string, isFinished:boolean, listId:number): boolean => {
+export const editTask = (taskId: number, name:string, description:string|undefined="", isFinished:boolean, listId:number): boolean => {
+  if (description === undefined) {
+    description = "";
+  }
+  
   let editTask = tasks.find(task => task.id === taskId);
   if (editTask !== undefined){
     editTask.name = name;
