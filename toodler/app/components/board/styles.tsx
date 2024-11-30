@@ -50,20 +50,18 @@ const styles = StyleSheet.create({
   },
   editButton: {
     position: 'absolute',
-    bottom: 10, // Positioned near the bottom inside the card
-    right: 10, // Aligned to the right inside the card
-    backgroundColor: '#cccccc', // Light grey background
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-    elevation: 2, // Slight shadow for depth
+    bottom: 10,
+    right: 10,
+    backgroundColor: '#ffffff',
+    padding: 5,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   
-  editButtonText: {
-    color: '#333333', // Dark grey text
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
+  editButtonImage: {
+    width: 24,
+    height: 24,
+  }
   
 });
 

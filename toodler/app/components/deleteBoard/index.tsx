@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Image } from "react-native";
 import styles from "./styles";
 import { Board, getAllBoards } from '@/app/Services/JsonInterpreter';
 import DeleteModal from "../deleteModal/index";
@@ -24,13 +24,16 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({ boardId, onDelete, setBoard
 
   return (
     <>
-      {/* Delete Button */}
-      <TouchableOpacity style={styles.deleteButton} onPress={openModal}>
-        <Text style={styles.deleteText}>Delete</Text>
-      </TouchableOpacity>
+    {/* Delete Button */}
+    <TouchableOpacity style={styles.deleteButton} onPress={openModal}>
+        <Image
+            source={{uri: 'https://w7.pngwing.com/pngs/29/45/png-transparent-delete-key-logo-button-text-rectangle-logo-thumbnail.png'}}
+            style={styles.image}
+        />
+    </TouchableOpacity>
 
       {/* Delete Modal */}
-      <DeleteModal
+    <DeleteModal
         isOpen={isModalOpen}
         closeModal={closeModal}
         confirmDelete={confirmDelete}
