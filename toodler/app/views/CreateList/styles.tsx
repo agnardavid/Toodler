@@ -52,6 +52,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#f9f9f9', // Light grey background for inputs
   },
+  TextContainerWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center', 
+  },
+  TextContainer: {
+    alignSelf: 'center',
+    borderRadius: 8,
+    width: 160,
+    height: 30,
+    justifyContent: 'center', // Centers vertically
+    alignItems: 'center',    // Centers horizontally
+    marginBottom: 20,
+    
+    
+  },
 });
 
 export default styles;

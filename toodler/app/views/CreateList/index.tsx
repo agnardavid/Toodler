@@ -53,13 +53,14 @@ const CreateList: React.FC<CreateListProps> = ({ navigation, route }) => {
           Selected Color: {selectedColor}
         </Text>
       )}
-
-    <Button title="Save Changes" onPress={() => {
-      let newListId:number = createList(boardId);
-      editList(newListId, name, selectedColor, boardId);
-      navigation.navigate('Lists', { boardId: boardId });
-    }
-    } color="#4CAF50" />
+      <View style={[styles.TextContainerWrapper, styles.TextContainer]}>
+        <Button title="Save Changes" onPress={() => {
+          let newListId:number = createList(boardId);
+          editList(newListId, name, selectedColor, boardId);
+          navigation.navigate('Lists', { boardId: boardId });
+        }
+        } color="#4CAF50" />
+      </View>
     </View>
   );
 };
