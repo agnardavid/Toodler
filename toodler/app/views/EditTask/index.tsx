@@ -8,7 +8,6 @@ type EditTaskProps = {
   route: {
     params: {
       taskId: number;
-      listId: number;
     };
   };
 };
