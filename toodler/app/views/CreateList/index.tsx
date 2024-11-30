@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import TextIn from '@/app/components/textInputField';
+import TextIn from '@/app/components/TextInputField';
 import styles from './styles';
 
 type CreateListProps = {

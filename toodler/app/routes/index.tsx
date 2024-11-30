@@ -18,7 +18,6 @@ import CreateBoard from '../views/CreateBoard';
 import Tasks from '../views/Tasks'
 import EditTask from '../views/EditTask';
 import EditBoard from '../views/editBoard';
-import createBoardScreen from '../views/createBoardScreen';
 import CreateTask from '../views/createTask';
 const Routes: React.FC = () => {
   return (
@@ -26,7 +25,7 @@ const Routes: React.FC = () => {
       <Stack.Navigator initialRouteName="AllBoards">
         <Stack.Screen name="AllBoards" component={AllBoards} />
         <Stack.Screen name="Lists" component={Lists} />
-        <Stack.Screen name="CreateBoardScreen" component={createBoardScreen} />
+        <Stack.Screen name="CreateBoard" component={CreateBoard} />
         <Stack.Screen name="TaskList" component={Tasks} />
         <Stack.Screen name="EditBoard" component={EditBoard}/>
         <Stack.Screen name="EditTask" component={EditTask}/>

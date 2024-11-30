@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View,ScrollView, FlatList } from 'react-native';
-import EachBoard from '../board';
+import EachBoard from '../Board';
 import {Board, getAllBoards} from '@/app/Services/JsonInterpreter';
 import styles from './styles';
-import AddBoardButton from '../addBoardButton';
+import AddBoardButton from '../AddBoardButton';
 import { AddButton } from '@/app/views/Lists';
 
 
@@ -35,7 +35,7 @@ export const DisplayBoards: React.FC<{ navigation: any }> = ({ navigation }) => 
         />
       ))}
       {/* Add the CreateBoardButton after rendering boards */}
-      <AddBoardButton onPress={() => navigation.navigate('CreateBoardScreen')} />
+      
     </ScrollView>
   );
 };

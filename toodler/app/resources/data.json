@@ -27,56 +27,64 @@
             "name": "Must see!",
             "color": "#ffffff",
             "boardId": 1,
-            "isDeleted": false
+            "isDeleted": false,
+            "isAddButton": false
         },
         {
             "id": 2,
             "name": "One-day trips!",
             "color": "#00ff00",
             "boardId": 1,
-            "isDeleted": false
+            "isDeleted": false,
+            "isAddButton": false
         },
         {
             "id": 3,
             "name": "Backlog",
             "color": "#dddddd",
             "boardId": 2,
-            "isDeleted": false
+            "isDeleted": false,
+            "isAddButton": false
         },
         {
             "id": 4,
             "name": "In progress",
             "color": "#cccccc",
             "boardId": 2,
-            "isDeleted": false
+            "isDeleted": false,
+            "isAddButton": false
         },
         {
             "id": 5,
             "name": "Done",
             "color": "#555555",
             "boardId": 2,
-            "isDeleted": false
+            "isDeleted": false,
+            "isAddButton": false
         },
         {
             "id": 6,
             "name": "Top 10",
             "color": "#ff0000",
             "boardId": 3,
-            "isDeleted": false
+            "isDeleted": false,
+            "isAddButton": false
         },
         {
             "id": 7,
             "name": "Top 10-20",
             "color": "#0000ff",
             "boardId": 3,
-            "isDeleted": false
+            "isDeleted": false,
+            "isAddButton": false
         },
         {
             "id": 8,
             "name": "Last",
             "color": "#ff00ff",
             "boardId": 3,
-            "isDeleted": false
+            "isDeleted": false,
+            "isAddButton": false
         }
     ],
     "tasks": [

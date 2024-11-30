@@ -22,15 +22,13 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
   const BoardLists = getAllListsByBoardId(boardId); 
   const Tasks = getAllTasks();
 
-  type ListData = ListInterface | AddButton;
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{Board.name}</Text>
 
       <View style={styles.listContainer}>
         <FlatList
-          data={[...BoardLists, { id: 'addButton', isAddButton: true }]} // Add a placeholder for addButton
+          data={BoardLists} // Add a placeholder for addButton
           keyExtractor={(item) => item.id.toString()}
           numColumns={2} // Two columns layout
           columnWrapperStyle={{ justifyContent: 'space-between' }} // Ensure cards are spaced correctly
