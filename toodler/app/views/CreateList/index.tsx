@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Button } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Button, TextInput } from 'react-native';
+import { createList, editList } from '@/app/Services/JsonInterpreter';
 import TextIn from '@/app/components/textInputField';
 import styles from './styles';
 
@@ -13,6 +14,9 @@ type CreateListProps = {
 };
 
 const CreateList: React.FC<CreateListProps> = ({ navigation, route }) => {
+  const { boardId } = route.params;
+  const [name, setName] = useState('');
+
   const [selectedColor, setSelectedColor] = useState<string | null>(null); 
   // List of available colors
   const colors = ['#FF5733', '#33FF57', '#3357FF', '#F0FF33', '#FF33A6'];
@@ -22,7 +26,11 @@ const CreateList: React.FC<CreateListProps> = ({ navigation, route }) => {
       <Text style={styles.heading}>Create New List</Text>
 
       {/* List Name Input */}
-      <TextIn placeholder="List Name" />
+      <TextInput
+      placeholder="List Name" 
+      value={name}
+      onChangeText={setName}
+      />
 
       {/* Choose Color */}
       <Text style={styles.label}>Choose a Color:</Text>
@@ -45,7 +53,12 @@ const CreateList: React.FC<CreateListProps> = ({ navigation, route }) => {
         </Text>
       )}
 
-    <Button title="Save Changes" onPress={() => {}} color="#4CAF50" />
+    <Button title="Save Changes" onPress={() => {
+      let newListId:number = createList(boardId);
+      editList(newListId, name, selectedColor, boardId);
+      navigation.navigate('Lists', { boardId: boardId });
+    }
+    } color="#4CAF50" />
     </View>
   );
 };
