@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import { getAllTasksByListId, deleteTask } from '@/app/Services/JsonInterpreter'; // Ensure deleteTask is imported
+import { getList, getAllTasksByListId, deleteTask } from '@/app/Services/JsonInterpreter'; // Ensure deleteTask is imported
 
 type TaskListProps = {
   navigation: any;
@@ -18,6 +18,8 @@ export const Tasks: React.FC<TaskListProps> = ({ navigation, route }) => {
 
   // Filter tasks for the specific listId
   const filteredTasks = getAllTasksByListId(listId);
+  const currentList = getList(listId);
+  
 
   const handleDeleteTask = (taskId: number) => {
     // Call the delete function and refresh the list
@@ -35,12 +37,15 @@ export const Tasks: React.FC<TaskListProps> = ({ navigation, route }) => {
     console.log(`Navigating to CreateTask for listId: ${listId}`);
     navigation.navigate('CreateTask', { listId }); // Pass listId to CreateTask
   };
-  
+  if (currentList === undefined){
+    navigation.navigate('AllBoards');
+  }
 
   return (
     <View style={styles.container}>
       {/* Display the title of the list */}
-      <Text style={styles.title}>Tasks for List {listId}</Text>
+      
+      <Text style={styles.title}>Tasks for {currentList?.name}</Text>
 
       {/* Display tasks */}
       <FlatList

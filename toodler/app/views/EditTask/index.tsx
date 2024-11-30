@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, ScrollView, Alert } from 'react-native';
 import styles from './styles';
-import { getTask, editTask } from '@/app/Services/JsonInterpreter';
+import { getList, getAllListsByBoardId, getTask, editTask } from '@/app/Services/JsonInterpreter';
+import { Picker } from '@react-native-picker/picker';
+
+
 
 type EditTaskProps = {
   navigation: any;
@@ -13,10 +16,23 @@ type EditTaskProps = {
 };
 
 const EditTask: React.FC<EditTaskProps> = ({ navigation, route }) => {
+  let PickerValue:number;
   const { taskId } = route.params;
+  
+  
 
   // Get the current task details
   const Task = getTask(taskId);
+  const currentList = getList(taskId);
+  if (currentList === undefined){
+    useEffect(() => {
+      Alert.alert('Error', 'Current List not found!', [
+        { text: 'OK', onPress: () => navigation.goBack() },
+      ]);
+    }, []);
+    return null;
+  }
+  const listsForCurrentBoard = getAllListsByBoardId(currentList.boardId);
 
   // Check if Task is undefined
   if (!Task) {
@@ -34,9 +50,11 @@ const EditTask: React.FC<EditTaskProps> = ({ navigation, route }) => {
   const [description, setDescription] = useState(Task.description);
   const [isFinished, setIsFinished] = useState(Task.isFinished);
 
+  const [selectedValue, setSelectedValue] = useState(0);
   // Save button handler
   const handleSave = () => {
-    const success: boolean = editTask(taskId, name, description, isFinished, Task.listId);
+    
+    const success: boolean = editTask(taskId, name, description, isFinished, selectedValue);
 
     if (success) {
       Alert.alert('Success', 'Task updated successfully!');
@@ -45,6 +63,7 @@ const EditTask: React.FC<EditTaskProps> = ({ navigation, route }) => {
       Alert.alert('Error', 'Failed to update task. Please try again.');
     }
   };
+  
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -84,7 +103,17 @@ const EditTask: React.FC<EditTaskProps> = ({ navigation, route }) => {
           />
         </View>
       </View>
-
+      
+      <Text>Move task to list:</Text>
+      
+      <Picker
+        selectedValue={selectedValue}
+        onValueChange={(itemValue) => setSelectedValue(Number(itemValue))}
+      >
+        {listsForCurrentBoard.map((item) => (
+          <Picker.Item key={item.id} label={item.name} value={item.id} />
+        ))}
+      </Picker>
       {/* Save Changes Button */}
       <Button title="Save Changes" onPress={handleSave} color="#4CAF50" />
     </ScrollView>
