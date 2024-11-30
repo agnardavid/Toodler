@@ -57,16 +57,18 @@ export const CreateTask: React.FC<{ navigation: any; route: { params: { listId: 
 
       {/* Task Status Toggle */}
       <TouchableOpacity
-        style={[styles.TextContainerWrapper ,styles.finishedButton, styles.TextContainer, {backgroundColor: isFinished ? '#4CAF50' : '#FF6F61'}]}
+        style={[styles.TextContainerWrapper, styles.TextContainer, {backgroundColor: isFinished ? '#4CAF50' : '#FF6F61'}]}
         onPress={() => setIsFinished(!isFinished)}
       >
-        <Text /*style={styles.statusButtonText}*/>
+        <Text style={styles.finishedButton}>
           {isFinished ? 'Mark as Pending' : 'Mark as Finished'}
         </Text>
       </TouchableOpacity>
 
       {/* Create Task Button */}
-      <Button title="Create Task" onPress={handleCreateTask} color="#4CAF50" />
+      <View style={[styles.TextContainerWrapper, styles.TextContainer]}>
+        <Button title="Create Task" onPress={handleCreateTask} color="#4CAF50" />
+      </View>
     </View>
   );
 };

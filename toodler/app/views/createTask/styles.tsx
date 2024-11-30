@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   TextContainer: {
     alignSelf: 'center',
-    borderRadius: 10,
+    borderRadius: 8,
     width: 160,
     height: 30,
     justifyContent: 'center', // Centers vertically
@@ -40,12 +40,14 @@ const styles = StyleSheet.create({
     
   },
   finishedButton: {
-    color: '#FFFFFF',
+    color: 'white',
     textAlign: 'center', 
     alignItems: 'center',
     justifyContent: 'center',
     textAlignVertical: 'center', 
+    paddingBottom: 2,
   },
+  
   textArea: {
     height: 100,
     textAlignVertical: 'top', // Ensure text starts at the top for multiline inputs
