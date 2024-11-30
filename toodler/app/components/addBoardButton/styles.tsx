@@ -1,24 +1,29 @@
 import { Dimensions, StyleSheet } from "react-native";
 
 const screenWidth = Dimensions.get('window').width;
+const itemWidth = screenWidth / 2 - 30;
 
 export const styles = StyleSheet.create({
     addButton: {
-    width: screenWidth / 2 - 24, // Match the width of the list cards
-    height: 150,                // Match the height of the list cards
-    margin: 8,
-    padding: 12,
-    borderRadius: 10,
-    borderWidth: 2,             // Border thickness
-    borderColor: '#888888',     // Light gray color for dotted border
-    borderStyle: 'dashed',      // Make the border dashed (dotted appearance)
-    justifyContent: 'center',   // Center content vertically
-    alignItems: 'center',       // Center content horizontally
-    backgroundColor: '#f9f9f9', // Light background color
+        flex: 1,
+        width: itemWidth,
+        height: 110,
+        borderRadius: 20,
+        borderWidth: 2,             
+        borderColor: '#9f9f9f',
+        borderStyle: 'dashed',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#cff6fc',
+        marginBottom: 20,
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowRadius: 6,
+        elevation: 3,
     },
     addButtonText: {
-        fontSize: 36,               // Larger font size for the `+` symbol
+        fontSize: 36,
         fontWeight: 'bold',
-        color: '#888888',           // Gray color to match the border
+        color: '#888888',
     },
 });

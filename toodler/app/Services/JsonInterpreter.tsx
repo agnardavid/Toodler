@@ -16,6 +16,7 @@ export interface ListInterface {
   boardId: number,
   isDeleted:boolean,
   isAddButton:boolean,
+  tasks: Task[],
 };
 
 export interface Task {
@@ -139,6 +140,7 @@ export const createList = (boardId:number): number => {
     boardId: boardId,
     isDeleted: false,
     isAddButton: false,
+    tasks: [],
   };
   lists.push(newList);
   return newList.id;

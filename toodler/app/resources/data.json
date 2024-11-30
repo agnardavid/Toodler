@@ -28,7 +28,8 @@
             "color": "#ffffff",
             "boardId": 1,
             "isDeleted": false,
-            "isAddButton": false
+            "isAddButton": false,
+            "tasks": []
         },
         {
             "id": 2,
@@ -36,7 +37,8 @@
             "color": "#00ff00",
             "boardId": 1,
             "isDeleted": false,
-            "isAddButton": false
+            "isAddButton": false,
+            "tasks": []
         },
         {
             "id": 3,
@@ -44,7 +46,8 @@
             "color": "#dddddd",
             "boardId": 2,
             "isDeleted": false,
-            "isAddButton": false
+            "isAddButton": false,
+            "tasks": []
         },
         {
             "id": 4,
@@ -52,7 +55,8 @@
             "color": "#cccccc",
             "boardId": 2,
             "isDeleted": false,
-            "isAddButton": false
+            "isAddButton": false,
+            "tasks": []
         },
         {
             "id": 5,
@@ -60,7 +64,8 @@
             "color": "#555555",
             "boardId": 2,
             "isDeleted": false,
-            "isAddButton": false
+            "isAddButton": false,
+            "tasks": []
         },
         {
             "id": 6,
@@ -68,7 +73,8 @@
             "color": "#ff0000",
             "boardId": 3,
             "isDeleted": false,
-            "isAddButton": false
+            "isAddButton": false,
+            "tasks": []
         },
         {
             "id": 7,
@@ -76,7 +82,8 @@
             "color": "#0000ff",
             "boardId": 3,
             "isDeleted": false,
-            "isAddButton": false
+            "isAddButton": false,
+            "tasks": []
         },
         {
             "id": 8,
@@ -84,7 +91,8 @@
             "color": "#ff00ff",
             "boardId": 3,
             "isDeleted": false,
-            "isAddButton": false
+            "isAddButton": false,
+            "tasks": []
         }
     ],
     "tasks": [

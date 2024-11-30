@@ -28,15 +28,21 @@ export const EachBoard: React.FC<BoardDisplay> = ({
   const isPhotoValid = photo && photo.trim() !== ''; // checks if photo is valid, i.e. not empty
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
-      {isPhotoValid ? (
-        <Image source={{ uri: photo }} style={styles.image} />
-      ) : (
-        <View style={styles.defaultImage} />
-      )}
+      
+        {isPhotoValid ? (
+          <Image source={{ uri: photo }} style={styles.image} />
+        ) : (
+          <View style={styles.defaultImage} />
+        )}
+      
 
       <View style={styles.textContainer}>
-        <Text style={styles.name}>{name}</Text>
-
+        {name ? (
+          <Text style={styles.name}>{name}</Text>
+        ):(
+          <Text style={styles.name}>Untitled</Text>
+        )}
+        
         {description ? (
           <Text style={styles.description}>{description}</Text>
         ) : (

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: '#97dce4',
     borderRadius: 20,
     overflow: 'hidden',
     marginVertical: 20,
@@ -13,54 +13,66 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     minHeight: 100,
-    position: 'relative', // Ensure relative positioning for the button
+    position: 'relative', 
+  },
+  imageContainer: {
+    width: '35%',
+    height: '100%',
+    padding: 8, 
+    backgroundColor: '#75cad6',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
-    width: '40%',
+    width: '30%',
     height: '100%',
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
   },
   defaultImage: {
-    width: '40%',
+    width: '0%',
     height: '100%',
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
     backgroundColor: '#f0f0f0',
   },
   textContainer: {
     padding: 5,
     flex: 1,
+    maxWidth: '60%',
   },
   name: {
-    fontSize: 14,
+    color: 'black',
+    fontFamily: 'Courier',
     fontWeight: 'bold',
+    fontSize: 15,
     marginBottom: 5,
+    marginLeft: 5,
+    flexWrap: 'wrap',
+    lineHeight: 20,
   },
   description: {
     fontSize: 12,
-    color: '#555',
+    color: '#447',
     marginBottom: 5,
+    marginLeft: 5,
   },
   noDescription: {
     fontSize: 12,
-    color: '#999',
+    color: '#669',
     fontStyle: 'italic',
     marginBottom: 5,
+    marginLeft: 5,
   },
   editButton: {
     position: 'absolute',
-    bottom: 10, // Positioned near the bottom inside the card
-    right: 10, // Aligned to the right inside the card
-    backgroundColor: '#cccccc', // Light grey background
+    bottom: 10, 
+    right: 10,
+    backgroundColor: '#cccccc',
     paddingVertical: 6,
     paddingHorizontal: 10,
     borderRadius: 5,
-    elevation: 2, // Slight shadow for depth
+    elevation: 2,
   },
   
   editButtonText: {
-    color: '#333333', // Dark grey text
+    color: '#333333',
     fontSize: 12,
     fontWeight: 'bold',
   },

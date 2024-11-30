@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 import EachBoard from '../Board';
 import {Board, getAllBoards} from '@/app/Services/JsonInterpreter';
 import styles from './styles';
@@ -15,7 +15,7 @@ export const DisplayBoards: React.FC<{ navigation: any }> = ({ navigation }) => 
   }, []);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
 
       {boards.map((board) => (
         <EachBoard
@@ -32,7 +32,7 @@ export const DisplayBoards: React.FC<{ navigation: any }> = ({ navigation }) => 
         />
       ))}
       
-    </ScrollView>
+    </View>
   );
 };
 
