@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
       paddingVertical: 16,
       width: '100%', // Distribute space evenly between items
     },
+    
 })
 
 export default styles;

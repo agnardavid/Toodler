@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { getAllListsByBoardId, ListInterface } from '@/app/Services/JsonInterpreter';
 import AddListButton from '../AddListButton'; 
 import EachList from '../List';
@@ -51,9 +51,13 @@ export const DisplayLists: React.FC<DisplayListsProps> = ({ boardId, navigation 
             );
         }
         if ('isAddButton' in item && item.isAddButton) {
-        return <AddListButton navigation={navigation} />;
-        }  
-
+          // Render Add List Button styled like a card
+          return (
+            <View>
+              <AddListButton navigation={navigation} />
+            </View>
+          );
+        }
         return null;
         }}
       />

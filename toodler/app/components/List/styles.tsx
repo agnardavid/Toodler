@@ -7,9 +7,13 @@ const cardWidth = (screenWidth - 55) / 2
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#bef4fc', // Light background color
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 10,
+    backgroundColor: '#ffffff',
+    marginBottom: 10,
+    position: 'relative', // Allow absolute positioning inside
+    minHeight: 150, // Ensures there's enough height for positioning
   },
   title: {
     fontSize: 24,

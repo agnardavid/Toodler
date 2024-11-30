@@ -41,10 +41,9 @@ export const EachList: React.FC<ListDisplay> = ({
                 navigation.navigate('TaskList', { listId: id });
             }}
             >
-            {/* List title and Edit button */}
+
             <View style={styles.listHeader}>
                 <Text style={styles.listTitle}>{name}</Text>
-                    <EditListButton id={id} name={name} navigation={navigation}/>
             </View>
 
             {/* Display tasks inside the box */}
@@ -57,6 +56,7 @@ export const EachList: React.FC<ListDisplay> = ({
                 {filteredTasks.length > 3 && <Text style={styles.moreText}>...more tasks</Text>}
             </View>
 
+            <EditListButton id={id} name={name} navigation={navigation}/>
             <DeleteListButton id={id} name={name} navigation={navigation} boardId={boardId}/>
 
         </TouchableOpacity>
