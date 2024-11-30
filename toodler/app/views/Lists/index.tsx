@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import { getAllListsByBoardId, getAllTasks, getBoard, deleteList } from '@/app/Services/JsonInterpreter';
+import { getAllListsByBoardId, ListInterface ,getAllTasks, getBoard, deleteList } from '@/app/Services/JsonInterpreter';
 
 type ListsScreenProps = {
   navigation: any;
@@ -22,6 +22,8 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
   const BoardLists = getAllListsByBoardId(boardId); 
   const Tasks = getAllTasks();
 
+  type ListData = ListInterface | AddButton;
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{Board.name}</Text>
@@ -33,7 +35,7 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
           numColumns={2} // Two columns layout
           columnWrapperStyle={{ justifyContent: 'space-between' }} // Ensure cards are spaced correctly
           renderItem={({ item }) => {
-            if (item.isAddButton) {
+            if ('isAddButton' in item && item.isAddButton) {
               // Render the Add Button
               return (
                 <TouchableOpacity
@@ -86,7 +88,9 @@ export const Lists: React.FC<ListsScreenProps> = ({ navigation, route }) => {
                   onPress={(e) => {
                     e.stopPropagation(); // Prevent bubbling up to the list card button
                     console.log(`Delete button pressed for: ${item.name}, ${item.id}`);
-                    deleteList(item.id);
+                    if (typeof item.id === 'number') {
+                      deleteList(item.id);
+                    }
                     navigation.navigate('Lists', { boardId: Board.id });
                   }}
                 >
