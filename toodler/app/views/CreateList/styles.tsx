@@ -42,6 +42,16 @@ const styles = StyleSheet.create({
     color: '#555',
     marginTop: 10,
   },
+  input: {
+    height: 40,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 5, // Rounded corners for input fields
+    marginBottom: 10,
+    paddingHorizontal: 8,
+    fontSize: 16,
+    backgroundColor: '#f9f9f9', // Light grey background for inputs
+  },
 });
 
 export default styles;

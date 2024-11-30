@@ -27,6 +27,7 @@ const CreateList: React.FC<CreateListProps> = ({ navigation, route }) => {
 
       {/* List Name Input */}
       <TextInput
+      style={styles.input}
       placeholder="List Name" 
       value={name}
       onChangeText={setName}

@@ -15,19 +15,21 @@ export const CreateTask: React.FC<{ navigation: any; route: { params: { listId: 
       alert('Task name is required!');
       
     }
-    
+    else{
 
-    // Step 1: Create a new task with default values
-    const newTaskId = createTask(listId);
-
-    // Step 2: Edit the task to add user-provided details
-    const success = editTask(newTaskId, name, description, isFinished, listId);
-
-    if (success) {
       
-      navigation.navigate('TaskList', { listId: listId });
-    } else {
-      alert('Failed to create task. Please try again.');
+      // Step 1: Create a new task with default values
+      const newTaskId = createTask(listId);
+
+      // Step 2: Edit the task to add user-provided details
+      const success = editTask(newTaskId, name, description, isFinished, listId);
+
+      if (success) {
+
+        navigation.navigate('TaskList', { listId: listId });
+      } else {
+        alert('Failed to create task. Please try again.');
+      }
     }
     
   };
@@ -55,10 +57,7 @@ export const CreateTask: React.FC<{ navigation: any; route: { params: { listId: 
 
       {/* Task Status Toggle */}
       <TouchableOpacity
-        style={[
-          //styles.statusButton,
-          { backgroundColor: isFinished ? '#4CAF50' : '#FF6F61' },
-        ]}
+        style={[styles.TextContainerWrapper ,styles.finishedButton, styles.TextContainer, {backgroundColor: isFinished ? '#4CAF50' : '#FF6F61'}]}
         onPress={() => setIsFinished(!isFinished)}
       >
         <Text /*style={styles.statusButtonText}*/>
