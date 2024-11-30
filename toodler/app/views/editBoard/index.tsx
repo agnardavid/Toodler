@@ -76,8 +76,9 @@ const EditBoard: React.FC<EditBoardProps> = ({ navigation, route }) => {
           placeholder="Enter thumbnail photo URL"
         />
       </View>
-
-      <Button title="Save Changes" onPress={handleSave} color="#4CAF50" />
+      <View style={[styles.TextContainerWrapper, styles.TextContainer]}>
+        <Button title="Save Changes" onPress={handleSave} color="#4CAF50" />
+      </View>
     </ScrollView>
   );
 };

@@ -39,6 +39,19 @@ const styles = StyleSheet.create({
       height: 100,
       textAlignVertical: 'top', // Ensures text starts at the top for multiline inputs
     },
+    TextContainerWrapper: {
+      justifyContent: 'center',
+      alignItems: 'center', 
+    },
+    TextContainer: {
+      alignSelf: 'center',
+      borderRadius: 8,
+      width: 160,
+      height: 30,
+      justifyContent: 'center', // Centers vertically
+      alignItems: 'center',    // Centers horizontally
+      marginBottom: 20,
+    },
 });
 
 export default styles;
