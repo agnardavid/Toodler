@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Button } from 'react-native';
 import TextIn from '@/app/components/textInputField';
 import styles from './styles';
 
@@ -44,6 +44,8 @@ const CreateList: React.FC<CreateListProps> = ({ navigation, route }) => {
           Selected Color: {selectedColor}
         </Text>
       )}
+
+    <Button title="Save Changes" onPress={() => {}} color="#4CAF50" />
     </View>
   );
 };
