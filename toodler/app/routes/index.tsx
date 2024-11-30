@@ -33,7 +33,7 @@ const Routes: React.FC = () => {
     <Stack.Navigator
       initialRouteName="AllBoards"
       screenOptions={{
-        header: (props:any) => <Header {...props} />, // Use custom header globally
+        header: (props:any) => <Header {...props} />, 
       }}
     >
       <Stack.Screen name="AllBoards" component={AllBoards} />

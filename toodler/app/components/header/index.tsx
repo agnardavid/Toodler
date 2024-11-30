@@ -4,9 +4,15 @@ import { StackHeaderProps } from '@react-navigation/stack';
 import styles from './styles';
 
 const Header: React.FC<StackHeaderProps> = ({ navigation, route, options }) => {
-    return (
+    
+  const handleGoBack = () => {
+    navigation.goBack();
+    navigation.setParams({ refresh: true });
+  };
+
+  return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={() => navigation.canGoBack() && navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.canGoBack() && handleGoBack()}>
           <Text style={styles.backButton}>{"< Back"}</Text>
         </TouchableOpacity>
         <Text style={styles.headerText}>{options?.title || route.name}</Text>
