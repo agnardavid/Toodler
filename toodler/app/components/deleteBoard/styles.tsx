@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     deleteButton: {
-        backgroundColor: '#89CFF0',
+        backgroundColor: '#fffff',
         padding: 5,
         top: 10,
         right: 10,
@@ -11,11 +11,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         position: 'absolute',
     },
-    deleteText: {
-        color: '#fff',
-        fontSize: 10,
-        fontWeight: 'bold',
-    }
+    image: {
+        width: 25,
+        height: 25,
+    },
 })
 
 export default styles
