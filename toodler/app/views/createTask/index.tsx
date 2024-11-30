@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Button } from 'react-native';
 import styles from './styles';
 import { createTask, editTask } from '@/app/Services/JsonInterpreter';
 
-const CreateTask: React.FC<{ navigation: any; route: { params: { listId: number } } }> = ({ navigation, route }) => {
+export const CreateTask: React.FC<{ navigation: any; route: { params: { listId: number } } }> = ({ navigation, route }) => {
   const { listId } = route.params; // Get the list ID where the task will be added
 
   const [name, setName] = useState('');
